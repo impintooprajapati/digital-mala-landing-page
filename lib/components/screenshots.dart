@@ -12,6 +12,18 @@ class _ScreenshotsState extends State<Screenshots> {
   int activeIndex = 0;
   static const int totalScreenshots = 9;
 
+  static const List<String> captions = [
+    'Sadhana Dashboard — View your active streaks, total counts, and weekly spiritual progress at a glance.',
+    'Mindful Japa Counter — Simulated bead movement with immersive haptic vibrations and sound cues.',
+    'Sadhana Heatmap — Visual activity charts that show your daily consistency over months.',
+    'Mantra Manager — Add custom mantras, set target round limits, and track counts for each spiritual chant.',
+    'Detailed Chanting History — Review local logs of all completed rounds, precise timestamps, and durations.',
+    'Mala Style Picker — Select from sacred Rudraksha, traditional Tulsi, crystal Sphatik, or Sandalwood beads.',
+    'Progress Reports — Export beautifully styled PDF logs and JSON backups to keep your data secure.',
+    'Sound and Haptics — Customize tactile vibrations, bead click sounds, and background chanting audios.',
+    'Smart Reminders — Set gentle, custom notifications to help integrate Japa chanting into your daily routine.',
+  ];
+
   void nextSlide() {
     setState(() {
       activeIndex = (activeIndex + 1) % totalScreenshots;
@@ -51,12 +63,17 @@ class _ScreenshotsState extends State<Screenshots> {
                     div(
                       classes: 'carousel-slide${i == activeIndex ? ' active-slide' : ''}',
                       [
-                        div(classes: 'carousel-phone', [
-                          img(  
-                            src: 'images/screenshots_raw/$i.png',
-                            alt: 'App Screenshot $i',
-                            loading: MediaLoading.lazy,
-                          )
+                        div(classes: 'carousel-phone-wrap', [
+                          div(classes: 'carousel-phone', [
+                            img(  
+                              src: 'images/screenshots_raw/$i.png',
+                              alt: 'App Screenshot $i',
+                              loading: MediaLoading.lazy,
+                            )
+                          ]),
+                          div(classes: 'slide-caption', [
+                            text(captions[i]),
+                          ]),
                         ])
                       ]
                     )

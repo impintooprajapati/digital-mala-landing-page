@@ -47,9 +47,11 @@ void main() {
     head: [
       // Import the custom external CSS stylesheet
       link(rel: 'stylesheet', href: 'styles.css'),
-      // Set favicon
-      link(rel: 'icon', type: 'image/png', href: 'images/logo.png'),
-      link(rel: 'shortcut icon', type: 'image/png', href: 'images/logo.png'),
+      // Set favicon and touch icon sizes
+      link(rel: 'icon', type: 'image/x-icon', href: 'favicon.ico'),
+      link(rel: 'icon', type: 'image/png', href: 'favicon-32x32.png', attributes: {'sizes': '32x32'}),
+      link(rel: 'icon', type: 'image/png', href: 'favicon-16x16.png', attributes: {'sizes': '16x16'}),
+      link(rel: 'apple-touch-icon', href: 'apple-touch-icon.png', attributes: {'sizes': '180x180'}),
       // Scroll helper and intersection observer script
       script(
         content: '''
@@ -72,6 +74,29 @@ void main() {
           }, { threshold: 0.15 });
           
           document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+          // Active navigation section highlighter
+          const navLinks = document.querySelectorAll('.nav-links .nav-link, .mobile-drawer .nav-link');
+          const sections = document.querySelectorAll('section[id]');
+          
+          window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+              const sectionTop = section.offsetTop;
+              const sectionHeight = section.clientHeight;
+              if (window.scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+              }
+            });
+            
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              const href = link.getAttribute('href');
+              if (href === '#' + current || href === '/#' + current) {
+                link.classList.add('active');
+              }
+            });
+          });
         });
         ''',
       ),

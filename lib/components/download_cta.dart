@@ -18,9 +18,9 @@ class DownloadCta extends StatelessComponent {
             div(classes: 'cta-grid', [
               // Left content
               div(classes: 'cta-content', [
-                h2([text('Begin Your Sadhana Today')]),
+                h2([text('Begin Your Daily Mantra Practice')]),
                 p([
-                  text('Take your mantra chanting practice to the next level with a distraction-free, privacy-first companion. Completely free to use with zero ads.')
+                  text('Cultivate presence, mindfulness, and discipline. Take your sacred chanting rounds wherever life takes you with a secure, offline companion that respects your space.')
                 ]),
                 a(
                   href: 'https://play.google.com/store/apps/details?id=com.digitalmala.digital_mala_app',
@@ -30,17 +30,17 @@ class DownloadCta extends StatelessComponent {
                     img(
                       src: 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png',
                       alt: 'Get it on Google Play',
-                      styles: Styles(height: 72.px)
+                      styles: Styles(height: 60.px)
                     )
                   ]
                 )
               ]),
 
-              // Right mockup screenshot
+              // Right mockup screenshot (using statistics/streak view)
               div(classes: 'cta-mockup', [
                 img(
-                  src: 'images/screenshots_raw/0.png',
-                  alt: 'Digital Mala Heatmap and Streak insights',
+                  src: 'images/screenshots_raw/2.png',
+                  alt: 'Digital Mala Heatmap and Streak insights screen',
                   loading: MediaLoading.lazy,
                 )
               ])

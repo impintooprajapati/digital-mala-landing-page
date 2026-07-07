@@ -16,18 +16,18 @@ class _NavigationState extends State<Navigation> {
     return header(classes: 'navbar', [
       div(classes: 'navbar-container', [
         // Brand Logo & Text
-        a(href: '#', classes: 'nav-logo', [
+        a(href: '/', classes: 'nav-logo', [
           img(src: 'images/logo.png', alt: 'Digital Mala Logo'),
           span([text('Digital Mala')]),
         ]),
 
         // Desktop Links
         nav(classes: 'nav-links', [
-          a(href: '#features', classes: 'nav-link', [text('Features')]),
-          a(href: '#screenshots', classes: 'nav-link', [text('Screenshots')]),
-          a(href: '#how-it-works', classes: 'nav-link', [text('How It Works')]),
-          a(href: '#faq', classes: 'nav-link', [text('FAQ')]),
-          a(href: '#download', classes: 'nav-btn', [text('Download Now')]),
+          a(href: '/#features', classes: 'nav-link', [text('Features')]),
+          a(href: '/#screenshots', classes: 'nav-link', [text('Screenshots')]),
+          a(href: '/#how-it-works', classes: 'nav-link', [text('How It Works')]),
+          a(href: '/#faq', classes: 'nav-link', [text('FAQ')]),
+          a(href: '/#download', classes: 'nav-btn', [text('Download Now')]),
         ]),
 
         // Mobile Hamburger menu toggle
@@ -48,31 +48,31 @@ class _NavigationState extends State<Navigation> {
         // Mobile Drawer Overlay
         div(classes: 'mobile-drawer${isDrawerOpen ? ' open' : ''}', [
           a(
-            href: '#features',
+            href: '/#features',
             classes: 'nav-link',
             onClick: () => setState(() => isDrawerOpen = false),
             [text('Features')],
           ),
           a(
-            href: '#screenshots',
+            href: '/#screenshots',
             classes: 'nav-link',
             onClick: () => setState(() => isDrawerOpen = false),
             [text('Screenshots')],
           ),
           a(
-            href: '#how-it-works',
+            href: '/#how-it-works',
             classes: 'nav-link',
             onClick: () => setState(() => isDrawerOpen = false),
             [text('How It Works')],
           ),
           a(
-            href: '#faq',
+            href: '/#faq',
             classes: 'nav-link',
             onClick: () => setState(() => isDrawerOpen = false),
             [text('FAQ')],
           ),
           a(
-            href: '#download',
+            href: '/#download',
             classes: 'nav-btn',
             onClick: () => setState(() => isDrawerOpen = false),
             [text('Download Now')],

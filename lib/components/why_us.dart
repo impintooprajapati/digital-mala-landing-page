@@ -12,53 +12,61 @@ class WhyUs extends StatelessComponent {
 
   static const List<ComparisonPoint> points = [
     ComparisonPoint(
-      title: 'Respecting Traditional Practices',
-      desc: 'Simulates physical prayer beads with haptic and audio triggers. Maintain mindfulness without counting manually.',
+      title: 'Respecting Traditional Sadhana',
+      desc: 'Simulates physical prayer beads with lifelike haptic vibrations. Designed to complement and honor your traditional rituals, not replace them.',
     ),
     ComparisonPoint(
-      title: 'Perfect for Modern Travel',
-      desc: 'No need to carry physical beads on trains, planes, or offices. Keep your chanting discreet and portable anywhere.',
+      title: 'Discreet Chanting on the Go',
+      desc: 'Perfect for transit, offices, flights, or public spaces. Maintain your chanting discipline silently and portably anywhere.',
     ),
     ComparisonPoint(
-      title: 'Personalized Practice Log',
-      desc: 'Keep records of mantras, daily streaks, heatmaps, and stats. Understand your chanting discipline with local graphs.',
+      title: 'Structured Devotion Logs',
+      desc: 'Track daily streaks, mantra counts, and weekly heatmaps to help establish consistency in your daily spiritual practice.',
     ),
     ComparisonPoint(
-      title: 'Local Security & Privacy First',
-      desc: 'Your spiritual counts are your own. No account sync, cloud servers, ads, or data collection. 100% offline.',
+      title: '100% Secure & Ad-Free Sanctuary',
+      desc: 'Your spiritual practice is your own. No account signups, no cloud syncing, zero trackers, and absolutely no distracting ads.',
     ),
   ];
 
   @override
   Component build(BuildContext context) {
     return section(
-      classes: 'section-padding reveal',
+      classes: 'section-padding section-alt-bg reveal',
       [
         div(classes: 'container', [
           div(classes: 'comparison-wrap', [
-            // Left: Text Introduction
-            div([
-              h2(classes: 'why-title', [text('Why Use Digital Mala?')]),
-              p(classes: 'why-intro', [
-                text('Traditional meditation beads (Mala) are sacred and irreplaceable. Digital Mala is not designed to replace them, but to act as a convenient, respectful companion during your travels, office hours, and when you want to track your spiritual consistency.')
+            // Left Column: Core Value Proposition & Graphic
+            div(classes: 'why-left-content', [
+              h2(classes: 'why-title', [
+                raw('A Mindful Companion <br/>For Your <span>Sadhana</span>')
               ]),
-              // Beautiful Golden Accent Image/Graphic
+              p(classes: 'why-intro', [
+                text('Traditional Japa malas are sacred. Digital Mala acts as a respectful, portable companion for times when physical beads are inconvenient—such as during travel, office hours, or for tracking long-term consistency.')
+              ]),
               div(classes: 'why-image-wrapper', [
                 img(
                   src: 'images/Feature_Graphic.png',
-                  alt: 'Digital Mala Graphic',
+                  alt: 'Digital Mala app interface and graphics mockup',
                   classes: 'why-image',
                   loading: MediaLoading.lazy,
                 )
               ]),
             ]),
 
-            // Right: Checklist Comparison Box
+            // Right Column: Premium Comparison Grid
             div(classes: 'comparison-box', [
+              h3(classes: 'comparison-box-title', [text('Harmonizing Tradition with Convenience')]),
               div(classes: 'comparison-list', [
                 for (var point in points)
                   div(classes: 'comparison-item', [
-                    span(classes: 'comparison-check', [text('✨')]),
+                    div(classes: 'comparison-marker-wrap', [
+                      raw('''
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#C99512" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      '''),
+                    ]),
                     div([
                       h4([text(point.title)]),
                       p([text(point.desc)]),
@@ -72,3 +80,5 @@ class WhyUs extends StatelessComponent {
     );
   }
 }
+
+
