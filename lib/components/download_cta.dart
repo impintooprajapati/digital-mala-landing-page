@@ -37,12 +37,14 @@ class DownloadCta extends StatelessComponent {
               ]),
 
               // Right mockup screenshot (using statistics/streak view)
-              div(classes: 'cta-mockup', [
-                img(
-                  src: 'images/screenshots_raw/2.png',
-                  alt: 'Digital Mala Heatmap and Streak insights screen',
-                  loading: MediaLoading.lazy,
-                )
+              div(classes: 'phone-mockup cta-phone-mockup', [
+                div(classes: 'phone-screen', [
+                  img(
+                    src: 'images/screenshots_raw/2.png',
+                    alt: 'Digital Mala Heatmap and Streak insights screen',
+                    loading: MediaLoading.lazy,
+                  )
+                ])
               ])
             ])
           ])
