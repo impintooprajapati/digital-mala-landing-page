@@ -12,35 +12,35 @@ class _ScreenshotsState extends State<Screenshots> {
   int activeIndex = 0;
   static const int totalScreenshots = 9;
 
-  static const List<String> captions = [
-    'Sadhana Dashboard — View your active streaks, total counts, and weekly spiritual progress at a glance.',
-    'Mindful Japa Counter — Simulated bead movement with immersive haptic vibrations and sound cues.',
-    'Sadhana Heatmap — Visual activity charts that show your daily consistency over months.',
-    'Mantra Manager — Add custom mantras, set target round limits, and track counts for each spiritual chant.',
-    'Detailed Chanting History — Review local logs of all completed rounds, precise timestamps, and durations.',
-    'Mala Style Picker — Select from sacred Rudraksha, traditional Tulsi, crystal Sphatik, or Sandalwood beads.',
-    'Progress Reports — Export beautifully styled PDF logs and JSON backups to keep your data secure.',
-    'Sound and Haptics — Customize tactile vibrations, bead click sounds, and background chanting audios.',
-    'Smart Reminders — Set gentle, custom notifications to help integrate Japa chanting into your daily routine.',
+  static const List<String> titles = [
+    'Splash Screen',
+    'Multilingual Support',
+    'Quiet Onboarding',
+    'Offline & Secure',
+    'Streak Tracking',
+    'Personalized Setup',
+    'Mindful Japa Counter',
+    'Sadhana Heatmap',
+    'Settings & Tuning',
   ];
 
-  void nextSlide() {
-    setState(() {
-      activeIndex = (activeIndex + 1) % totalScreenshots;
-    });
-  }
-
-  void prevSlide() {
-    setState(() {
-      activeIndex = (activeIndex - 1 + totalScreenshots) % totalScreenshots;
-    });
-  }
+  static const List<String> descriptions = [
+    'Our serene, minimal launch screen designed to invite focus and spiritual tranquility from the first touch.',
+    'Supporting multiple regional languages (Hindi, Gujarati, Marathi, Spanish, etc.) for a native chanting experience.',
+    'Step-by-step introduction focused on distraction-free Naam Jaap practice without complex setups.',
+    'Your chanting data is stored 100% offline. No backend cloud databases, and zero external tracking.',
+    'Visually track your daily consistency, active streaking, and progress logs as you form your spiritual habit.',
+    'Personalize target chanting limits, choose bead sounds, and configure haptic vibration intensities.',
+    'A realistic Japa Counter with smooth bead animations, immersive haptics, and a clean progress ring.',
+    'Visual insights and activity charts that show your daily consistency and chanting rounds over months.',
+    'Fine-tune your experience with bead style selection, smart reminders, and easy data backup tools.',
+  ];
 
   @override
   Component build(BuildContext context) {
     return section(
       id: 'screenshots',
-      classes: 'section-padding reveal',
+      classes: 'section-padding',
       [
         div(classes: 'container', [
           // Section Title
@@ -51,58 +51,104 @@ class _ScreenshotsState extends State<Screenshots> {
             ]),
           ]),
 
-          // Carousel Wrapper
-          div(classes: 'carousel-outer', [
-            // Track Window
-            div(classes: 'carousel-container', [
-              div(
-                classes: 'carousel-track',
-                attributes: {'style': '--carousel-index: $activeIndex; transform: translateX(calc(-1 * var(--carousel-index) * var(--slide-width, 33.333%)));'},
-                [
+          // Storytelling Grid
+          div(classes: 'storytelling-grid', [
+            // Left Column: Sticky mockup container
+            div(classes: 'storytelling-mockup-pane', [
+              div(classes: 'phone-mockup-sticky', [
+                div(classes: 'phone-mockup', [
+                  div(classes: 'phone-screen', [
+                    for (int i = 0; i < totalScreenshots; i++)
+                      img(
+                        classes: 'phone-screen-stack-img${i == 0 ? ' active' : ''}',
+                        src: 'images/screenshots_raw/$i.png',
+                        alt: 'App Screenshot $i',
+                        loading: i == 0 ? MediaLoading.eager : MediaLoading.lazy,
+                        attributes: {'data-index': '$i'},
+                      )
+                  ])
+                ]),
+                // Floating indicator dots inside the mockup pane
+                div(classes: 'storytelling-dots', [
                   for (int i = 0; i < totalScreenshots; i++)
                     div(
-                      classes: 'carousel-slide${i == activeIndex ? ' active-slide' : ''}',
-                      [
-                        div(classes: 'carousel-phone-wrap', [
-                          div(classes: 'carousel-phone', [
-                            img(  
-                              src: 'images/screenshots_raw/$i.png',
-                              alt: 'App Screenshot $i',
-                              loading: MediaLoading.lazy,
-                            )
-                          ]),
-                          div(classes: 'slide-caption', [
-                            text(captions[i]),
-                          ]),
-                        ])
-                      ]
+                      classes: 'storytelling-dot${i == 0 ? ' active' : ''}',
+                      attributes: {'data-index': '$i'},
+                      []
                     )
-                ]
-              )
+                ])
+              ])
             ]),
 
-            // Left / Right Buttons
-            button(
-              classes: 'carousel-nav-btn carousel-prev',
-              onClick: prevSlide,
-              [text('‹')]
-            ),
-            button(
-              classes: 'carousel-nav-btn carousel-next',
-              onClick: nextSlide,
-              [text('›')]
-            ),
-
-            // Indicator Dots
-            div(classes: 'carousel-dots', [
+            // Right Column: Vertical scrolling content steps
+            div(classes: 'storytelling-content', [
               for (int i = 0; i < totalScreenshots; i++)
-                button(
-                  classes: 'carousel-dot${i == activeIndex ? ' active' : ''}',
-                  onClick: () => setState(() => activeIndex = i),
-                  []
+                div(
+                  classes: 'storytelling-step${i == 0 ? ' active' : ''}',
+                  attributes: {'data-step-index': '$i'},
+                  [
+                    div(classes: 'storytelling-step-card', [
+                      span(classes: 'storytelling-step-num', [text('0${i + 1}')]),
+                      h3(classes: 'storytelling-step-title', [text(titles[i])]),
+                      p(classes: 'storytelling-step-desc', [text(descriptions[i])])
+                    ])
+                  ]
                 )
-            ])
-          ])
+            ]),
+          ]),
+
+          // Scroll-triggered Intersection Observer script
+          script(content: '''
+            (() => {
+              function setupStoryObserver() {
+                const steps = document.querySelectorAll(".storytelling-step");
+                const images = document.querySelectorAll(".phone-screen-stack-img");
+                const dots = document.querySelectorAll(".storytelling-dot");
+
+                if (!steps.length || !images.length) return;
+
+                // Ensure first image is already active on load
+                images.forEach((img, idx) => {
+                  if (idx === 0) {
+                    img.classList.add("active");
+                  } else {
+                    img.classList.remove("active");
+                  }
+                });
+
+                const observerOptions = {
+                  root: null,
+                  rootMargin: "-35% 0px -35% 0px",
+                  threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const idx = entry.target.getAttribute("data-step-index");
+
+                    images.forEach((img) => {
+                      img.classList.toggle("active", img.getAttribute("data-index") === idx);
+                    });
+                    dots.forEach((dot) => {
+                      dot.classList.toggle("active", dot.getAttribute("data-index") === idx);
+                    });
+                    steps.forEach((step) => {
+                      step.classList.toggle("active", step.getAttribute("data-step-index") === idx);
+                    });
+                  });
+                }, observerOptions);
+
+                steps.forEach((step) => observer.observe(step));
+              }
+
+              if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", setupStoryObserver);
+              } else {
+                setupStoryObserver();
+              }
+            })();
+          ''')
         ])
       ]
     );
