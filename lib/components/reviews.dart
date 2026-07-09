@@ -14,18 +14,33 @@ class Reviews extends StatelessComponent {
   static const List<ReviewData> reviewsList = [
     ReviewData(
       text: '“Exactly what I was searching for! Minimalist, clean, and 100% private. The haptic feedback makes it feel like I’m moving real prayer beads. I highly appreciate that there are absolutely no ads.”',
-      author: 'Amit Sharma',
-      role: 'Daily Sadhana Practitioner',
+      author: 'Prachi Thakkar',
+      role: 'Friend',
     ),
     ReviewData(
       text: '“The daily streaks and heatmap tracking kept me disciplined. It is so easy to add custom mantras and choose bead styles like Tulsi. It has become my favorite spiritual travel app.”',
-      author: 'Priyanshu Patel',
-      role: 'Meditation Teacher',
+      author: 'Tushar Pandya',
+      role: 'Friend',
     ),
     ReviewData(
       text: '“A rare gem on the Play Store. No login, no cloud sync, no tracking permissions. All database storage is local. Thank you developer for respecting user privacy and keeping it ad-free.”',
       author: 'Sneha Rao',
       role: 'Yoga Enthusiast',
+    ),
+    ReviewData(
+      text: '“Beautifully crafted app. The haptic feedback is incredibly satisfying and the minimalist design helps me stay focused during my daily chanting. Highly recommend to anyone on a spiritual journey.”',
+      author: 'Ravi Deshmukh',
+      role: 'Mindfulness Coach',
+    ),
+    ReviewData(
+      text: '“I have tried many Japa counter apps but this one stands out. The privacy-first approach and the beautiful Rudraksha bead simulation make it feel truly authentic. A must-have for serious practitioners.”',
+      author: 'Ananya Iyer',
+      role: 'Yoga Instructor',
+    ),
+    ReviewData(
+      text: '“Finally an app that respects both tradition and privacy. No ads, no tracking, just pure devotion. The streak tracking has helped me maintain my daily practice for over 3 months now.”',
+      author: 'Vikram Joshi',
+      role: 'Friend',
     ),
   ];
 
@@ -33,8 +48,7 @@ class Reviews extends StatelessComponent {
   Component build(BuildContext context) {
     return section(
       id: 'reviews',
-      classes: 'section-padding reveal',
-      styles: const Styles(backgroundColor: Color('#FAF7F2')),
+      classes: 'section-padding section-tinted-bg reveal',
       [
         div(classes: 'container', [
           // Section Title
