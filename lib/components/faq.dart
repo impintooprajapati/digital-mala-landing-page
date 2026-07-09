@@ -71,7 +71,7 @@ class _FaqItemState extends State<FaqItem> {
           });
         },
         [
-          h3([text(component.question)]),
+          span(classes: 'faq-question-text', [text(component.question)]),
           span(classes: 'faq-icon', [
             raw('''
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

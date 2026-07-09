@@ -15,6 +15,31 @@ class TermsOfServicePage extends StatelessComponent {
       main_(classes: 'subpage-content', [
         // Background decorative blob
         div(classes: 'decor-blob blob-gold-1', []),
+
+        // BreadcrumbList structured data
+        script(
+          attributes: {'type': 'application/ld+json'},
+          content: '''
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://digitalmala.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Terms of Service",
+                "item": "https://digitalmala.app/terms-of-service"
+              }
+            ]
+          }
+          ''',
+        ),
         
         // Subpage Hero
         section(classes: 'subpage-hero', [
@@ -92,7 +117,7 @@ class TermsOfServicePage extends StatelessComponent {
               h2([text('9. Contact Us')]),
               p([
                 text('If you have any questions, feedback, or concerns regarding these Terms, please reach out to us at '),
-                a(href: 'mailto:legal@digitalmala.app', [text('legal@digitalmala.app')]),
+                a(href: 'mailto:digitalmala@impintooprajapati.in', [text('digitalmala@impintooprajapati.in')]),
                 text('.')
               ]),
               

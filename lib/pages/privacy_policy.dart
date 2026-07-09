@@ -15,6 +15,31 @@ class PrivacyPolicyPage extends StatelessComponent {
       main_(classes: 'subpage-content', [
         // Background decorative blob
         div(classes: 'decor-blob blob-gold-1', []),
+
+        // BreadcrumbList structured data
+        script(
+          attributes: {'type': 'application/ld+json'},
+          content: '''
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://digitalmala.app/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Privacy Policy",
+                "item": "https://digitalmala.app/privacy-policy"
+              }
+            ]
+          }
+          ''',
+        ),
         
         // Subpage Hero
         section(classes: 'subpage-hero', [
@@ -96,7 +121,7 @@ class PrivacyPolicyPage extends StatelessComponent {
               h2([text('7. Contact Us')]),
               p([
                 text('If you have any questions or feedback about our privacy practices, please contact us directly at '),
-                a(href: 'mailto:legal@digitalmala.app', [text('legal@digitalmala.app')]),
+                a(href: 'mailto:digitalmala@impintooprajapati.in', [text('digitalmala@impintooprajapati.in')]),
                 text('.')
               ]),
               

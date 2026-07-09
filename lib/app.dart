@@ -5,6 +5,7 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'pages/home_page.dart';
 import 'pages/privacy_policy.dart';
 import 'pages/terms_of_service.dart';
+import 'pages/changelog_page.dart';
 
 // The main component of the application.
 //
@@ -29,6 +30,10 @@ class App extends StatelessComponent {
         Route(
           path: '/terms-of-service',
           builder: (context, state) => const TermsOfServicePage(),
+        ),
+        Route(
+          path: '/changelog',
+          builder: (context, state) => const ChangelogPage(),
         ),
       ],
     );
