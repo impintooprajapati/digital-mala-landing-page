@@ -6,6 +6,16 @@ class Changelog extends StatelessComponent {
 
   static const List<_VersionEntry> versions = [
     _VersionEntry(
+      version: '1.1.5',
+      date: '24 Jul 22:48',
+      changes: [
+        '🎵 Audio Feedback Engine: Eyes-closed jaap practice with sacred sound chimes (Temple Bell, Gong, Tink).',
+        '📳 Tactile Haptic Engine: Subtle vibration on every bead tap and a distinct double vibration when a round is completed.',
+        '⚙️ Audio & Vibration Settings: Toggle sounds, choose your preferred chime, and control vibration strength.',
+        '🎯 Target Count Selection: Quickly choose 27, 54, 108, or set a custom target.',
+      ],
+    ),
+    _VersionEntry(
       version: '1.1.4',
       date: '28 Jun 22:28',
       changes: [
