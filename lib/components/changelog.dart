@@ -4,7 +4,7 @@ import 'package:jaspr/jaspr.dart';
 class Changelog extends StatelessComponent {
   const Changelog({super.key});
 
-  static const List<_VersionEntry> versions = [
+  static const List<_VersionEntry> _versions = [
     _VersionEntry(
       version: '1.1.5',
       date: '24 Jul 22:48',
@@ -75,7 +75,7 @@ class Changelog extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'changelog-timeline', [
-      for (var entry in versions)
+      for (var entry in _versions)
         div(classes: 'changelog-entry${entry.isInitial ? ' initial' : ''}', [
           div(classes: 'changelog-marker', [
             div(classes: 'changelog-dot', []),
@@ -83,15 +83,13 @@ class Changelog extends StatelessComponent {
           div(classes: 'changelog-card', [
             div(classes: 'changelog-header', [
               div(classes: 'changelog-version-badge', [
-                text('v${entry.version}'),
+                Component.text('v${entry.version}'),
               ]),
-              span(classes: 'changelog-date', [text(entry.date)]),
-              if (entry.isInitial)
-                span(classes: 'changelog-tag', [text('Initial Release')]),
+              span(classes: 'changelog-date', [Component.text(entry.date)]),
+              if (entry.isInitial) span(classes: 'changelog-tag', [Component.text('Initial Release')]),
             ]),
             ul(classes: 'changelog-list', [
-              for (var change in entry.changes)
-                li([text(change)]),
+              for (var change in entry.changes) li([Component.text(change)]),
             ]),
           ]),
         ]),

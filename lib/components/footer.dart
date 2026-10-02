@@ -1,60 +1,77 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'play_store_button.dart';
 
 class Footer extends StatelessComponent {
   const Footer({super.key});
-
   @override
-  Component build(BuildContext context) {
-    return footer(classes: 'footer', [
-      div(classes: 'container', [
-        div(classes: 'footer-grid', [
-          div(classes: 'footer-brand', [
-            a(href: '/', classes: 'footer-logo', [
-              img(src: 'images/logo.png', alt: 'Digital Mala Logo'),
-              h3(styles: const Styles(fontFamily: FontFamily('Cormorant Garamond'), fontWeight: FontWeight.bold), [
-                text('Digital Mala')
-              ]),
-            ]),
-            p([
-              text('A premium, privacy-focused spiritual companion for Japa chanting and mindfulness meditation. Built with respect for traditional practices.')
-            ])
+  Component build(BuildContext context) => footer(classes: 'footer', [
+    div(classes: 'container', [
+      div(classes: 'footer-grid', [
+        div(classes: 'footer-brand', [
+          a(href: '/', classes: 'nav-logo', [
+            img(src: '/images/logo.png', alt: '', attributes: {'width': '42', 'height': '42'}),
+            span([Component.text('Digital Mala')]),
           ]),
-
-          div(classes: 'footer-links-col', [
-            h4([text('Explore')]),
-            ul([
-              li([a(href: '/#features', [text('Features')])]),
-              li([a(href: '/#screenshots', [text('Screenshots')])]),
-              li([a(href: '/#how-it-works', [text('How It Works')])]),
-              li([a(href: '/#reviews', [text('Reviews')])]),
-              li([a(href: '/#faq', [text('FAQ')])]),
-            ])
-          ]),
-
-          div(classes: 'footer-links-col', [
-            h4([text('Legal & App')]),
-            ul([
-              li([a(href: '/privacy-policy', [text('Privacy Policy')])]),
-              li([a(href: '/terms-of-service', [text('Terms of Service')])]),
-              li([
-                a(
-                  href: 'https://play.google.com/store/apps/details?id=com.digitalmala.digital_mala_app',
-                  target: Target.blank,
-                  attributes: {'aria-label': 'Download Digital Mala on Google Play (opens in new tab)'},
-                  [text('Get on Google Play')]
-                )
-              ])
-            ])
+          p([
+            Component.text(
+              'A peaceful companion for mantra chanting, mindful repetition and a practice that is your own.',
+            ),
           ]),
         ]),
-
-        // Bottom Copyright
-        div(classes: 'footer-bottom', [
-          span([text('© ${DateTime.now().year} Digital Mala. All rights reserved.')]),
-          span([text('v1.0.0 • Proudly Made in India')])
-        ])
-      ])
-    ]);
-  }
+        nav(
+          classes: 'footer-links-col',
+          attributes: {'aria-label': 'Product links'},
+          [
+            h2([Component.text('Product')]),
+            ul([
+              for (final link in [
+                ('Features', '/#features'),
+                ('How It Works', '/#how-it-works'),
+                ('App Screens', '/#screenshots'),
+                ('FAQ', '/#faq'),
+                ("What's New", '/changelog'),
+              ])
+                li([
+                  a(href: link.$2, [Component.text(link.$1)]),
+                ]),
+            ]),
+          ],
+        ),
+        nav(
+          classes: 'footer-links-col',
+          attributes: {'aria-label': 'Legal and support links'},
+          [
+            h2([Component.text('Legal & Support')]),
+            ul([
+              li([
+                a(href: '/privacy-policy', [Component.text('Privacy Policy')]),
+              ]),
+              li([
+                a(href: '/terms-of-service', [Component.text('Terms of Service')]),
+              ]),
+              li([
+                a(href: 'mailto:digitalmala@impintooprajapati.in', [Component.text('Contact Support')]),
+              ]),
+              li([
+                a(
+                  href: playStoreUrl,
+                  target: Target.blank,
+                  attributes: {
+                    'rel': 'noopener noreferrer',
+                    'aria-label': 'Digital Mala on Google Play (opens in a new tab)',
+                  },
+                  [Component.text('Google Play')],
+                ),
+              ]),
+            ]),
+          ],
+        ),
+      ]),
+      div(classes: 'footer-bottom', [
+        span([Component.text('© ${DateTime.now().year} Digital Mala')]),
+        span([Component.text('Made with care in India')]),
+      ]),
+    ]),
+  ]);
 }

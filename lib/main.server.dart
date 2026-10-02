@@ -24,53 +24,62 @@ void main() {
   //
   // [Document] renders the root document structure (<html>, <head> and <body>)
   // with the provided parameters and components.
-  runApp(Document(
-    title: 'Digital Mala - Japa Counter & Spiritual Chanting',
-    lang: 'en',
-    viewport: 'width=device-width, initial-scale=1.0',
-    meta: {
-      'description': 'Digital Mala is a premium, privacy-first Japa Counter for daily chanting and spiritual meditation. 100% offline, zero ads, custom mantras, streaks and traditional bead styles.',
-      'keywords': 'digital mala, japa counter, mantra chanting, meditation bead counter, spiritual tracker, offline japa, privacy first counter, rudraksha bead counter, tulsi beads',
-      'author': 'Digital Mala App',
-      'theme-color': '#FAF7F2',
-      // Open Graph Tags
-      'og:title': 'Digital Mala - Japa Counter & Spiritual Chanting',
-      'og:description': 'Digital Mala is a premium, privacy-first Japa Counter for daily chanting and spiritual meditation. 100% offline, zero ads, custom mantras, streaks and traditional bead styles.',
-      'og:image': 'https://digitalmala.app/images/Feature_Graphic.png',
-      'og:image:width': '1200',
-      'og:image:height': '630',
-      'og:url': 'https://digitalmala.app/',
-      'og:type': 'product',
-      'og:locale': 'en_US',
-      'og:site_name': 'Digital Mala',
-      // Twitter Card Tags
-      'twitter:card': 'summary_large_image',
-      'twitter:title': 'Digital Mala - Japa Counter & Spiritual Chanting',
-      'twitter:description': 'Digital Mala is a premium, privacy-first Japa Counter for daily chanting and spiritual meditation. 100% offline, zero ads, custom mantras, streaks and traditional bead styles.',
-      'twitter:image': 'https://digitalmala.app/images/Feature_Graphic.png',
-    },
-    head: [
-      // Preconnect hints for Google Fonts
-      link(rel: 'preconnect', href: 'https://fonts.googleapis.com'),
-      link(rel: 'preconnect', href: 'https://fonts.gstatic.com', attributes: {'crossorigin': ''}),
-      // Load Google Fonts
-      link(rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap'),
-      // Canonical URL
-      link(rel: 'canonical', href: 'https://digitalmala.app/'),
-      // Import the custom external CSS stylesheet
-      link(rel: 'stylesheet', href: 'styles.css'),
-      // Set favicon and touch icon sizes
-      link(rel: 'icon', type: 'image/x-icon', href: 'favicon.ico'),
-      link(rel: 'icon', type: 'image/png', href: 'favicon-32x32.png', attributes: {'sizes': '32x32'}),
-      link(rel: 'icon', type: 'image/png', href: 'favicon-16x16.png', attributes: {'sizes': '16x16'}),
-      link(rel: 'apple-touch-icon', href: 'apple-touch-icon.png', attributes: {'sizes': '180x180'}),
-      link(rel: 'manifest', href: 'manifest.json'),
-      // Scroll helper and intersection observer script
-      script(
-        content: '''
+  runApp(
+    Document(
+      title: 'Digital Mala - Japa Counter & Spiritual Chanting',
+      lang: 'en',
+      viewport: 'width=device-width, initial-scale=1.0',
+      meta: {
+        'description':
+            'Digital Mala is a premium, privacy-first Japa Counter for daily chanting and spiritual meditation. 100% offline, zero ads, custom mantras, streaks and traditional bead styles.',
+        'keywords':
+            'digital mala, japa counter, mantra chanting, meditation bead counter, spiritual tracker, offline japa, privacy first counter, rudraksha bead counter, tulsi beads',
+        'author': 'Digital Mala App',
+        'theme-color': '#FCF9F3',
+        // Open Graph Tags
+        'og:title': 'Digital Mala - Japa Counter & Spiritual Chanting',
+        'og:description':
+            'Digital Mala is a premium, privacy-first Japa Counter for daily chanting and spiritual meditation. 100% offline, zero ads, custom mantras, streaks and traditional bead styles.',
+        'og:image': 'https://digitalmala.app/images/Feature_Graphic.png',
+        'og:image:width': '1200',
+        'og:image:height': '630',
+        'og:url': 'https://digitalmala.app/',
+        'og:type': 'product',
+        'og:locale': 'en_US',
+        'og:site_name': 'Digital Mala',
+        // Twitter Card Tags
+        'twitter:card': 'summary_large_image',
+        'twitter:title': 'Digital Mala - Japa Counter & Spiritual Chanting',
+        'twitter:description':
+            'Digital Mala is a premium, privacy-first Japa Counter for daily chanting and spiritual meditation. 100% offline, zero ads, custom mantras, streaks and traditional bead styles.',
+        'twitter:image': 'https://digitalmala.app/images/Feature_Graphic.png',
+      },
+      head: [
+        // Preconnect hints for Google Fonts
+        link(rel: 'preconnect', href: 'https://fonts.googleapis.com'),
+        link(rel: 'preconnect', href: 'https://fonts.gstatic.com', attributes: {'crossorigin': ''}),
+        // Load Google Fonts
+        link(
+          rel: 'stylesheet',
+          href:
+              'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap',
+        ),
+        // Canonical URL
+        link(rel: 'canonical', href: 'https://digitalmala.app/'),
+        // Import the custom external CSS stylesheet
+        link(rel: 'stylesheet', href: '/styles.css'),
+        // Set favicon and touch icon sizes
+        link(rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'),
+        link(rel: 'icon', type: 'image/png', href: '/favicon-32x32.png', attributes: {'sizes': '32x32'}),
+        link(rel: 'icon', type: 'image/png', href: '/favicon-16x16.png', attributes: {'sizes': '16x16'}),
+        link(rel: 'apple-touch-icon', href: '/apple-touch-icon.png', attributes: {'sizes': '180x180'}),
+        // Scroll helper and intersection observer script
+        script(
+          content: '''
         window.addEventListener('DOMContentLoaded', () => {
-          const navbar = document.querySelector('.navbar');
           window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
             if (window.scrollY > 50) {
               navbar.classList.add('scrolled');
             } else {
@@ -78,30 +87,46 @@ void main() {
             }
           });
           
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-              }
-            });
-          }, { threshold: 0.15 });
-          
-          document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
           // Lock body scroll when mobile drawer is open
           const drawer = document.querySelector('.mobile-drawer');
           if (drawer) {
             const syncDrawerScroll = () => {
-              document.documentElement.classList.toggle('drawer-open', drawer.classList.contains('open'));
+              const isOpen = !!document.querySelector('.mobile-drawer.open');
+              if (document.documentElement.classList.contains('drawer-open') !== isOpen) {
+                document.documentElement.classList.toggle('drawer-open', isOpen);
+              }
             };
-            new MutationObserver(syncDrawerScroll).observe(drawer, { attributes: true, attributeFilter: ['class'] });
+            new MutationObserver(syncDrawerScroll).observe(document.body, {
+              subtree: true, childList: true, attributes: true, attributeFilter: ['class']
+            });
+            document.addEventListener('keydown', (event) => {
+              const menu = document.querySelector('.mobile-drawer.open');
+              if (!menu) return;
+              const toggle = document.querySelector('.hamburger');
+              if (event.key === 'Escape') {
+                toggle.click();
+                toggle.focus();
+              }
+              if (event.key === 'Tab') {
+                const links = Array.from(menu.querySelectorAll('a'));
+                const controls = [toggle, ...links];
+                const index = controls.indexOf(document.activeElement);
+                if (event.shiftKey && index <= 0) {
+                  event.preventDefault();
+                  controls[controls.length - 1].focus();
+                } else if (!event.shiftKey && (index === -1 || index === controls.length - 1)) {
+                  event.preventDefault();
+                  toggle.focus();
+                }
+              }
+            });
           }
 
           // Active navigation section highlighter
-          const navLinks = document.querySelectorAll('.nav-links .nav-link, .mobile-drawer .nav-link');
-          const sections = document.querySelectorAll('section[id]');
-          
           window.addEventListener('scroll', () => {
+            const navLinks = document.querySelectorAll('.nav-links .nav-link, .mobile-drawer .nav-link');
+            const sections = document.querySelectorAll('section[id]');
             let current = '';
             sections.forEach(section => {
               const sectionTop = section.offsetTop;
@@ -121,11 +146,11 @@ void main() {
           });
         });
         ''',
-      ),
-      // Structured Data: MobileApplication + Reviews
-      script(
-        attributes: {'type': 'application/ld+json'},
-        content: '''
+        ),
+        // Structured Data: MobileApplication + Reviews
+        script(
+          attributes: {'type': 'application/ld+json'},
+          content: '''
         {
           "@context": "https://schema.org",
           "@graph": [
@@ -140,12 +165,7 @@ void main() {
                 "price": "0",
                 "priceCurrency": "USD"
               },
-              "description": "Digital Mala is a private spiritual companion for Japa chanting and mindfulness meditation. Features custom mantras, haptic feedback, daily streaks, and traditional bead styles (Rudraksha, Tulsi, Sphatik). 100% offline, secure, and ad-free.",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "150"
-              }
+              "description": "Digital Mala is a private spiritual companion for Japa chanting and mindfulness meditation. Features custom mantras, haptic feedback, daily streaks, and traditional bead styles (Rudraksha, Tulsi, Sphatik). 100% offline, secure, and ad-free."
             },
             {
               "@type": "ItemList",
@@ -296,11 +316,11 @@ void main() {
           ]
         }
         ''',
-      ),
-      // Structured Data: BreadcrumbList for homepage
-      script(
-        attributes: {'type': 'application/ld+json'},
-        content: '''
+        ),
+        // Structured Data: BreadcrumbList for homepage
+        script(
+          attributes: {'type': 'application/ld+json'},
+          content: '''
         {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -314,8 +334,9 @@ void main() {
           ]
         }
         ''',
-      )
-    ],
-    body: App(),
-  ));
+        ),
+      ],
+      body: App(),
+    ),
+  );
 }
