@@ -12,6 +12,8 @@ import '../components/reviews.dart';
 import '../components/faq.dart';
 import '../components/download_cta.dart';
 import '../components/footer.dart';
+import '../components/value_strip.dart';
+import '../components/screenshot_story.dart';
 
 class HomePage extends StatelessComponent {
   const HomePage({super.key});
@@ -21,15 +23,12 @@ class HomePage extends StatelessComponent {
     return div(classes: 'app-container', [
       // 1. Sticky Navigation
       const Navigation(),
-      
+
       // Main Page Content wrapper
-      main_(styles: const Styles(position: Position.relative()), [
-        // Background golden blobs for visual richness
-        div(classes: 'decor-blob blob-gold-1', []),
-        div(classes: 'decor-blob blob-gold-2', []),
-        
+      main_(id: 'main-content', styles: const Styles(position: Position.relative()), [
         // 2. Hero Section
         const HeroSection(),
+        const ValueStrip(),
 
         // 3. Features Cards
         const Features(),
@@ -42,6 +41,7 @@ class HomePage extends StatelessComponent {
 
         // 6. Why Digital Mala
         const WhyUs(),
+        const ScreenshotStory(),
 
         // 7. Community Reviews
         const Reviews(),

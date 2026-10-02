@@ -10,9 +10,9 @@ class ChangelogPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'app-container page-subpage', [
-      const Navigation(),
+      const Navigation(contentHref: '/changelog#main-content'),
 
-      main_(classes: 'subpage-content', [
+      main_(id: 'main-content', classes: 'subpage-content', [
         div(classes: 'decor-blob blob-gold-1', []),
 
         script(
@@ -42,12 +42,12 @@ class ChangelogPage extends StatelessComponent {
         section(classes: 'subpage-hero', [
           div(classes: 'container', [
             nav(classes: 'breadcrumbs', [
-              a(href: '/', [text('Home')]),
-              span(classes: 'separator', [text('/')]),
-              span(classes: 'current', [text("What's New")]),
+              a(href: '/', [Component.text('Home')]),
+              span(classes: 'separator', [Component.text('/')]),
+              span(classes: 'current', [Component.text("What's New")]),
             ]),
-            h1([text("Changelog & Release Notes")]),
-            p(classes: 'last-updated', [text('Stay up to date with the latest improvements and features.')]),
+            h1([Component.text("Changelog & Release Notes")]),
+            p(classes: 'last-updated', [Component.text('Stay up to date with the latest improvements and features.')]),
           ]),
         ]),
 
@@ -56,8 +56,8 @@ class ChangelogPage extends StatelessComponent {
             const Changelog(),
             div(classes: 'back-home-wrap', [
               a(href: '/', classes: 'btn-back-home', [
-                span([text('←')]),
-                text(' Back to Home'),
+                span([Component.text('←')]),
+                Component.text(' Back to Home'),
               ]),
             ]),
           ]),
