@@ -104,6 +104,23 @@ class FeatureCard extends StatelessComponent {
         span(attributes: {'aria-hidden': 'true'}, [Component.text('✓')]),
         span([Component.text('On your device. In your control.')]),
       ]),
+    if (index == 2)
+      ul(
+        classes: 'bead-styles',
+        attributes: {'aria-label': 'Available mala bead styles'},
+        [
+          for (final style in [
+            ('Rudraksha', 'rudraksha'),
+            ('Tulsi', 'tulsi'),
+            ('Sphatik', 'sphatik'),
+            ('Moti', 'moti'),
+          ])
+            li([
+              span(classes: 'bead-sample ${style.$2}', attributes: {'aria-hidden': 'true'}, []),
+              span([Component.text(style.$1)]),
+            ]),
+        ],
+      ),
     if (index == 3 || index == 5)
       div(classes: 'feature-preview', [
         img(

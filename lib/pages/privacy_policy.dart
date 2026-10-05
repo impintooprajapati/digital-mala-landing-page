@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import '../components/page_seo.dart';
 import '../components/navigation.dart';
 import '../components/footer.dart';
 
@@ -9,6 +10,12 @@ class PrivacyPolicyPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'app-container page-subpage', [
+      const PageSeo(
+        title: 'Privacy Policy — Digital Mala',
+        description:
+            'Learn how Digital Mala keeps your mantra counts and practice logs on your device, with no account, cloud storage, ads or tracking.',
+        path: '/privacy-policy',
+      ),
       // Navigation
       const Navigation(contentHref: '/privacy-policy#main-content'),
 

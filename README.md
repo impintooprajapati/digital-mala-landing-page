@@ -6,10 +6,10 @@ Designed to reflect the app's serene spiritual aesthetic, this website introduce
 
 ## 🌸 Serene & Spiritual Design
 
-- **App-aligned Theme:** Follows the calm, premium warm ivory (`#FAF7F2`) and sacred gold (`#C99512`) color palette.
-- **Micro-interactions:** Smooth scroll-reveal animations using modern Intersection Observer logic, high-fidelity responsive hover states, and transitions.
-- **Device Mockups:** High-quality, custom iPhone mockups designed in pure CSS to showcase the real app screenshots from the Google Play Store cleanly.
-- **Privacy & Performance:** Fully static page pre-rendering for optimal SEO, lightning-fast performance, and absolute security.
+- **App-aligned Theme:** Warm ivory (`#FCF9F3`), deep brown (`#251D17`) and muted saffron (`#D79A16`).
+- **Micro-interactions:** Restrained hover states and accordion transitions with reduced-motion support.
+- **Device Mockups:** CSS device frames present the existing Android app screenshots in contextual product showcases.
+- **Privacy & Performance:** Static pre-rendered pages, lazy-loaded supporting screenshots and a prioritized hero image. No analytics or tracking scripts are added.
 
 ---
 
@@ -90,5 +90,20 @@ You can serve the `/build/jaspr` folder using any static host (GitHub Pages, Fir
 
 ## 📝 SEO & Analytics Ready
 
-- Meta Description tags and Open Graph (OG) tags are configured dynamically inside the server entrypoint ([main.server.dart](file:///Users/pintoo/development/projects/digital-mala-landing-page/lib/main.server.dart)).
-- Structured JSON-LD metadata for a `MobileApplication` schema is included natively to enhance search engine visibility.
+- Each route renders a unique title, description, canonical, Open Graph and Twitter metadata through `lib/components/page_seo.dart`. These are present in the static HTML before JavaScript runs.
+- The homepage includes linked `WebSite`, `WebPage` and `MobileApplication` JSON-LD. Legal and release-note pages retain their own breadcrumb schema. No unverified rating or review markup is emitted.
+- The production origin is `https://digitalmala.app`. If the domain changes, update `siteUrl`, breadcrumb URLs, `web/sitemap.xml` and `web/robots.txt` together.
+- Keep sitemap modification dates accurate when pages change.
+
+### Validation
+
+```bash
+dart analyze
+dart pub global run jaspr_cli:jaspr build
+python3 scripts/verify_seo.py
+node scripts/test_ui_runtime.mjs
+```
+
+The SEO check validates all four generated routes, unique metadata, canonical/sitemap consistency, social tags, one H1, structured-data scope and local assets. The runtime check uses isolated test fixtures, not a browser; responsive visual checks still need to be performed separately.
+
+After deployment, submit `https://digitalmala.app/sitemap.xml` in Google Search Console and inspect the live pages. Local checks do not prove indexing or rankings.

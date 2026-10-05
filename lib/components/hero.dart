@@ -10,6 +10,7 @@ class HeroSection extends StatelessComponent {
     div(classes: 'container hero-grid', [
       div(classes: 'hero-content', [
         span(classes: 'hero-eyebrow', [Component.text('A calmer way to practice')]),
+        span(classes: 'hero-product-label', [Component.text('Digital Mala · Mantra & Japa Counter')]),
         h1(classes: 'hero-title', [
           Component.text('Chant with '),
           span([Component.text('Mindfulness.')]),
@@ -19,7 +20,7 @@ class HeroSection extends StatelessComponent {
         ]),
         p(classes: 'hero-desc', [
           Component.text(
-            'A simple, distraction-free mantra counter designed to help you stay present, build consistency and deepen your daily spiritual practice.',
+            'A free, offline mantra and japa counter for Android. Stay present, build consistency and deepen your daily spiritual practice — one bead at a time.',
           ),
         ]),
         div(classes: 'hero-actions', [

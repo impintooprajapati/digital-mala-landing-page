@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import '../components/page_seo.dart';
 import '../components/navigation.dart';
 import '../components/changelog.dart';
 import '../components/footer.dart';
@@ -10,6 +11,12 @@ class ChangelogPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'app-container page-subpage', [
+      const PageSeo(
+        title: 'Release Notes & App Updates — Digital Mala',
+        description:
+            'Explore Digital Mala release notes: new mala bead styles, languages, chanting goals, haptic feedback and improvements to your daily practice.',
+        path: '/changelog',
+      ),
       const Navigation(contentHref: '/changelog#main-content'),
 
       main_(id: 'main-content', classes: 'subpage-content', [

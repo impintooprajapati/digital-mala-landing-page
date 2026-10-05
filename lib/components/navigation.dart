@@ -55,7 +55,7 @@ class _NavigationState extends State<Navigation> {
     if (isDrawerOpen)
       button(
         classes: 'mobile-overlay',
-        attributes: {'aria-label': 'Close navigation overlay'},
+        attributes: {'aria-label': 'Close navigation overlay', 'tabindex': '-1'},
         events: {'click': (event) => _closeDrawer()},
         [],
       ),

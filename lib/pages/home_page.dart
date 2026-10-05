@@ -1,5 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import '../components/page_seo.dart';
+import '../components/compact_download.dart';
 
 // Import our custom components
 import '../components/navigation.dart';
@@ -21,6 +23,7 @@ class HomePage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'app-container', [
+      const PageSeo(title: homeTitle, description: homeDescription, path: '/'),
       // 1. Sticky Navigation
       const Navigation(),
 
@@ -55,6 +58,7 @@ class HomePage extends StatelessComponent {
 
       // 10. Footer Section
       const Footer(),
+      const CompactDownload(),
     ]);
   }
 }
