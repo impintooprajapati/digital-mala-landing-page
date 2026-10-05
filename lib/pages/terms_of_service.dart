@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import '../components/page_seo.dart';
 import '../components/navigation.dart';
 import '../components/footer.dart';
 
@@ -9,6 +10,12 @@ class TermsOfServicePage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'app-container page-subpage', [
+      const PageSeo(
+        title: 'Terms of Service — Digital Mala',
+        description:
+            'Read the terms for using Digital Mala, the free offline mantra counter, including local data, responsible use and support information.',
+        path: '/terms-of-service',
+      ),
       // Navigation
       const Navigation(contentHref: '/terms-of-service#main-content'),
 

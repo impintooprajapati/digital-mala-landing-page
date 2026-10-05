@@ -2,26 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://digitalmala.app/</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://digitalmala.app/privacy-policy</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://digitalmala.app/terms-of-service</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
   <url>
     <loc>https://digitalmala.app/changelog</loc>
-    <lastmod>2026-07-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-05</lastmod>
   </url>
 </urlset>
