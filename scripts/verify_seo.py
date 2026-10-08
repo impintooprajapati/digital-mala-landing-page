@@ -73,7 +73,12 @@ for route in ROUTES:
     assert ("MobileApplication" in types) == (route == "/"), f"{route}: app schema leaked"
     if route == "/":
         assert {"WebSite", "WebPage", "MobileApplication"} <= types
+        assert page.attributes("div", "id", "desktop"), "Desktop availability anchor is missing"
+        statuses = page.attributes("span", "class", "coming-soon-label")
+        assert len(statuses) == 3, "Each desktop platform needs a coming-soon status"
+        assert page.attributes("a", "href", "/#desktop"), "Hero should link to desktop availability"
         app = next(node for node in nodes if node.get("@type") == "MobileApplication")
+        assert app["operatingSystem"] == "Android", "Unreleased platforms must not be advertised as available in app schema"
         assert app["offers"]["price"] == "0"
         assert "aggregateRating" not in app
         assert page.attributes("link", "rel", "preload")

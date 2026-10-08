@@ -84,7 +84,7 @@ class TermsOfServicePage extends StatelessComponent {
               h2([Component.text('3. License Grant')]),
               p([
                 Component.text(
-                  'We grant you a personal, non-transferable, non-exclusive, revocable license to download and use the App on your mobile device for your personal, non-commercial spiritual practices, in accordance with these Terms.',
+                  'I grant you a personal, non-transferable, non-exclusive, revocable license to download and use the App on your mobile device for your personal, non-commercial spiritual practices, in accordance with these Terms.',
                 ),
               ]),
 
@@ -104,7 +104,7 @@ class TermsOfServicePage extends StatelessComponent {
                 li([
                   strong([Component.text('Data Deletion: ')]),
                   Component.text(
-                    'Uninstalling the App or clearing its data will permanently delete all your information. We cannot retrieve or restore this data for you under any circumstances.',
+                    'Uninstalling the App or clearing its data will permanently delete all your information. I cannot retrieve or restore this data for you under any circumstances.',
                   ),
                 ]),
                 li([
@@ -123,7 +123,7 @@ class TermsOfServicePage extends StatelessComponent {
               h2([Component.text('6. Disclaimer of Warranties')]),
               p([
                 Component.text(
-                  'The App is provided on an "AS IS" and "AS AVAILABLE" basis, without warranties of any kind, express or implied. We do not warrant that the App will be uninterrupted, error-free, or meet all your expectations. Your spiritual journey is unique, and the App is designed simply as a supportive tool.',
+                  'The App is provided on an "AS IS" and "AS AVAILABLE" basis, without warranties of any kind, express or implied. I do not warrant that the App will be uninterrupted, error-free, or meet all your expectations. Your spiritual journey is unique, and the App is designed simply as a supportive tool.',
                 ),
               ]),
 
@@ -141,10 +141,10 @@ class TermsOfServicePage extends StatelessComponent {
                 ),
               ]),
 
-              h2([Component.text('9. Contact Us')]),
+              h2([Component.text('9. Contact the Developer')]),
               p([
                 Component.text(
-                  'If you have any questions, feedback, or concerns regarding these Terms, please reach out to us at ',
+                  'If you have any questions, feedback, or concerns regarding these Terms, please reach out to me at ',
                 ),
                 a(href: 'mailto:digitalmala@impintooprajapati.in', [
                   Component.text('digitalmala@impintooprajapati.in'),
