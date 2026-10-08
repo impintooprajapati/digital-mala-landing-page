@@ -3,7 +3,7 @@ import 'package:jaspr/jaspr.dart';
 import '../components/page_seo.dart';
 import '../components/compact_download.dart';
 
-// Import our custom components
+// Import the reusable components
 import '../components/navigation.dart';
 import '../components/hero.dart';
 import '../components/features.dart';

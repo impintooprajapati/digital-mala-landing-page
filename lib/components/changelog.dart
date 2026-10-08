@@ -37,8 +37,8 @@ class Changelog extends StatelessComponent {
       version: '1.1.2',
       date: '13 Jun 09:09',
       changes: [
-        'Marathi Language Support: We have fixed text rendering issues for Marathi name jap.',
-        'Cleaner Insights: We removed the calendar to give you a clutter-free view of your Sadhana Activity Heatmap.',
+        'Marathi Language Support: Fixed text rendering issues for Marathi name jap.',
+        'Cleaner Insights: Removed the calendar to give you a clutter-free view of your Sadhana Activity Heatmap.',
         'Peace & Stability: General improvements for a smoother, distraction-free meditation journey.',
       ],
     ),

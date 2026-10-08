@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'phone_mockup.dart';
 import 'play_store_button.dart';
+import 'desktop_availability.dart';
 
 class DownloadCta extends StatelessComponent {
   const DownloadCta({super.key});
@@ -22,12 +23,15 @@ class DownloadCta extends StatelessComponent {
             ),
           ]),
           const PlayStoreButton(light: true),
-          span(classes: 'cta-footnote', [Component.text('Free to use · No account required · Android')]),
+          span(classes: 'cta-footnote', [
+            Component.text('Available now on Android · Free to use · No account required'),
+          ]),
         ]),
         div(classes: 'cta-visual', [
           const PhoneMockup(image: '/images/screenshots_raw/6.png', alt: 'Digital Mala mindful counting screen'),
         ]),
       ]),
+      const DesktopAvailability(),
     ]),
   ]);
 }

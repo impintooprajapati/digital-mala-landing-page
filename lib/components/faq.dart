@@ -21,7 +21,7 @@ class Faq extends StatelessComponent {
             const FaqItem(
               question: 'Where is my chanting data stored?',
               answer:
-                  'All data is stored directly on your phone in a secure local database. The app operates 100% offline, meaning we do not run servers and cannot access your logs. If you uninstall the app, your local database is permanently deleted.',
+                  'All data is stored directly on your phone in a secure local database. The app operates 100% offline, meaning I do not run servers and cannot access your logs. If you uninstall the app, your local database is permanently deleted.',
             ),
             const FaqItem(
               question: 'Can I back up my progress or transfer it?',

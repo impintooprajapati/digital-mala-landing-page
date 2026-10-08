@@ -1,7 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
-// Import our custom pages
+// Import the page components
 import 'pages/home_page.dart';
 import 'pages/privacy_policy.dart';
 import 'pages/terms_of_service.dart';

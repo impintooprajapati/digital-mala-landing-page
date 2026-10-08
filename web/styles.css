@@ -84,6 +84,8 @@ ul,ol { padding: 0; margin: 0; list-style: none; }
 .text-button { display: inline-flex; align-items: center; min-height: 44px; font-size: .875rem; font-weight: 600; border-bottom: 1px solid #b7a58e; }
 .text-button:hover { color: var(--accent-text); border-color: var(--accent-text); }
 .hero-benefits { display: grid; grid-template-columns: max-content max-content; gap: 10px 24px; margin-top: 28px; font-size: .8125rem; color: #716354; }
+.hero-platform-note { margin-top: 18px; font-size: .75rem; line-height: 1.7; color: var(--text-secondary); }
+.hero-platform-note a { display: inline-block; padding-block: 4px; color: var(--accent-text); text-decoration: underline; text-underline-offset: 4px; }
 .hero-benefits li { display: flex; align-items: center; gap: 8px; }
 .hero-benefits span { color: #9b712b; font-size: 1rem; }
 .hero-visual { position: relative; min-height: 690px; display: flex; flex-direction: column; align-items: center; justify-content: center; isolation: isolate; }
@@ -238,6 +240,20 @@ details[open] > summary::after { content: '−'; }
 .cta-content h2 span { color: #e5bd7c; font-style: italic; }
 .cta-content p { color: #c9bcae; margin: 24px 0 30px; max-width: 470px; }
 .cta-footnote { display: block; font-size: .75rem; color: #c9bcae; margin-top: 20px; }
+.desktop-availability { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 48px; align-items: center; margin-top: 24px; padding: 40px; background: linear-gradient(115deg,#fcf7ec,#f7f1e6); border: 1px solid #e6dccb; border-radius: 24px; scroll-margin-top: 100px; }
+.desktop-availability .eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: .625rem; letter-spacing: .1em; }
+.development-dot { display: inline-block; flex: 0 0 6px; width: 6px; height: 6px; border-radius: 50%; background: #ae843b; }
+.desktop-availability h3 { font-family: var(--font-title); font-size: 2.15rem; font-weight: 600; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 14px; text-wrap: balance; }
+.desktop-availability-copy p { font-size: .875rem; max-width: 420px; line-height: 1.8; }
+.desktop-android-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 14px; color: #79591f; font-size: .75rem; font-weight: 600; }
+.desktop-android-link:hover { color: var(--primary-color); }
+.desktop-android-link span { font-size: 1rem; }
+.desktop-platforms { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.desktop-platforms li { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 10px; border: 1px solid #e6dccb; border-radius: 16px; background: #fffcf8; text-align: center; box-shadow: 0 4px 12px #251d1703; }
+.desktop-platform-icon { display: grid; place-items: center; width: 48px; height: 48px; color: #846937; border: 1px solid #eee2cd; border-radius: 14px; background: #f8f0e0; }
+.desktop-platform-icon svg { width: 25px; height: 25px; }
+.desktop-platforms strong { font-size: .875rem; font-weight: 600; }
+.coming-soon-label { color: #756044; background: #f6eddd; border: 1px solid #eee2cd; border-radius: 20px; padding: 3px 8px; font-size: .625rem; white-space: nowrap; }
 .cta-visual { display: flex; align-items: center; justify-content: center; position: relative; }
 .cta-visual::before { content: ''; position: absolute; width: 450px; height: 450px; background: radial-gradient(circle,#d79a1630,transparent 65%); }
 .cta-visual .device { width: 250px; transform: rotate(5deg); box-shadow: 0 16px 36px #0003; }
@@ -297,6 +313,7 @@ details[open] > summary::after { content: '−'; }
   .cta-banner { padding: 56px 48px; }
 }
 @media (max-width: 900px) {
+  .desktop-availability { grid-template-columns: 1fr; gap: 24px; }
   .nav-links,.desktop-download { display: none; }
   .hamburger { display: flex; }
   .hero-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -360,6 +377,10 @@ details[open] > summary::after { content: '−'; }
   .download-section { padding-top: 0; }
 }
 @media (max-width: 480px) {
+  .desktop-availability { padding: 26px 20px; }
+  .desktop-platforms { gap: 8px; }
+  .desktop-platforms li { padding: 18px 6px; }
+  .hero-platform-note a { min-height: 44px; display: inline-flex; align-items: center; }
   .container { padding: 0 20px; }
   .navbar { height: 70px; }
   .nav-logo { font-size: 1.4rem; }

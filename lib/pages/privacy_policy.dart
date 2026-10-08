@@ -70,7 +70,7 @@ class PrivacyPolicyPage extends StatelessComponent {
               h2([Component.text('1. Introduction')]),
               p([
                 Component.text(
-                  'At Digital Mala, we respect your spiritual journey and your personal privacy. This Privacy Policy explains how our mobile application collects, uses, and safeguards your information. We believe your spiritual practices should remain completely secure and private.',
+                  'As the developer of Digital Mala, I respect your spiritual journey and your personal privacy. This Privacy Policy explains how the mobile application collects, uses, and safeguards your information. I believe your spiritual practices should remain completely secure and private.',
                 ),
               ]),
 
@@ -96,7 +96,7 @@ class PrivacyPolicyPage extends StatelessComponent {
                 li([
                   strong([Component.text('No Cloud Servers: ')]),
                   Component.text(
-                    'We do not operate databases or backend cloud servers. Your data never leaves your phone.',
+                    'I do not operate databases or backend cloud servers. Your data never leaves your phone.',
                   ),
                 ]),
                 li([
@@ -131,28 +131,28 @@ class PrivacyPolicyPage extends StatelessComponent {
               h2([Component.text('4. Data Control and Deletion')]),
               p([
                 Component.text(
-                  'Because your data is stored entirely on your device, you have absolute control over it. You can permanently delete all your data at any time by clearing the app’s cache/data in your device settings or by uninstalling the application. Once deleted, this data cannot be recovered by us, as we do not keep backups.',
+                  'Because your data is stored entirely on your device, you have absolute control over it. You can permanently delete all your data at any time by clearing the app’s cache/data in your device settings or by uninstalling the application. Once deleted, this data cannot be recovered by me, as I do not keep backups.',
                 ),
               ]),
 
               h2([Component.text('5. Children\'s Privacy')]),
               p([
                 Component.text(
-                  'Our application does not collect any personal information and is safe for individuals of all ages. We do not target or knowingly collect data from children.',
+                  'The application does not collect any personal information and is safe for individuals of all ages. I do not target or knowingly collect data from children.',
                 ),
               ]),
 
               h2([Component.text('6. Changes to this Policy')]),
               p([
                 Component.text(
-                  'We may update our Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this policy periodically.',
+                  'I may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. I encourage you to review this policy periodically.',
                 ),
               ]),
 
-              h2([Component.text('7. Contact Us')]),
+              h2([Component.text('7. Contact the Developer')]),
               p([
                 Component.text(
-                  'If you have any questions or feedback about our privacy practices, please contact us directly at ',
+                  'If you have any questions or feedback about the app’s privacy practices, please contact me directly at ',
                 ),
                 a(href: 'mailto:digitalmala@impintooprajapati.in', [
                   Component.text('digitalmala@impintooprajapati.in'),

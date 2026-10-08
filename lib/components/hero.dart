@@ -27,6 +27,10 @@ class HeroSection extends StatelessComponent {
           const PlayStoreButton(),
           a(href: '/#features', classes: 'text-button', [Component.text('Explore Features')]),
         ]),
+        p(classes: 'hero-platform-note', [
+          Component.text('Available now on Android. '),
+          a(href: '/#desktop', [Component.text('Desktop versions coming soon →')]),
+        ]),
         ul(classes: 'hero-benefits', [
           for (final benefit in ['Free to use', 'Works offline', 'Private by design', 'No account required'])
             li([
