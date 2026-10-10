@@ -6,6 +6,15 @@ class Changelog extends StatelessComponent {
 
   static const List<_VersionEntry> _versions = [
     _VersionEntry(
+      version: '1.6.0',
+      date: '10 Oct 2026',
+      changes: [
+        'Windows is now available on Microsoft Store, with standalone ZIP and MSIX packages on GitHub.',
+        'Linux x64 desktop bundle is now available from the v1.6.0 GitHub release.',
+        'The macOS desktop edition remains in development.',
+      ],
+    ),
+    _VersionEntry(
       version: '1.1.5',
       date: '24 Jul 22:48',
       changes: [

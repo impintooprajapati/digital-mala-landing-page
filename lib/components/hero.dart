@@ -20,16 +20,16 @@ class HeroSection extends StatelessComponent {
         ]),
         p(classes: 'hero-desc', [
           Component.text(
-            'A free, offline mantra and japa counter for Android. Stay present, build consistency and deepen your daily spiritual practice — one bead at a time.',
+            'A free, offline mantra and japa counter for Android, Windows and Linux. Stay present and deepen your daily spiritual practice — one bead at a time.',
           ),
         ]),
         div(classes: 'hero-actions', [
           const PlayStoreButton(),
-          a(href: '/#features', classes: 'text-button', [Component.text('Explore Features')]),
+          a(href: '/#desktop', classes: 'text-button', [Component.text('Download for desktop')]),
         ]),
         p(classes: 'hero-platform-note', [
-          Component.text('Available now on Android. '),
-          a(href: '/#desktop', [Component.text('Desktop versions coming soon →')]),
+          Component.text('Android, Windows & Linux available. '),
+          a(href: '/#desktop', [Component.text('macOS coming soon →')]),
         ]),
         ul(classes: 'hero-benefits', [
           for (final benefit in ['Free to use', 'Works offline', 'Private by design', 'No account required'])

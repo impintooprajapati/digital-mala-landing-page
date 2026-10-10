@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'play_store_button.dart';
+import '../constants/downloads.dart';
 
 const siteUrl = 'https://digitalmala.app';
 const homeTitle = 'Digital Mala — Free Offline Japa & Mantra Counter';
 const homeDescription =
-    'A free, offline japa counter for Android. Chant mantras with virtual mala beads, set daily goals and track your practice. No ads or account required.';
+    'Free offline mantra and japa counter for Android, Windows and Linux. Track your practice with virtual mala beads. No ads or account. macOS coming soon.';
 
 /// Rendered into the HTML head at build time, not injected only after hydration.
 class PageSeo extends StatelessComponent {
@@ -25,7 +26,7 @@ class PageSeo extends StatelessComponent {
         'twitter:title': title,
         'twitter:description': description,
         'twitter:image': '$siteUrl/images/Feature_Graphic.png',
-        'twitter:image:alt': 'Digital Mala — private, offline mantra counting for Android',
+        'twitter:image:alt': 'Digital Mala — private, offline mantra counting',
       },
       children: [
         for (final entry in <String, String>{
@@ -38,7 +39,7 @@ class PageSeo extends StatelessComponent {
           'og:image': '$siteUrl/images/Feature_Graphic.png',
           'og:image:width': '1024',
           'og:image:height': '500',
-          'og:image:alt': 'Digital Mala — private, offline mantra counting for Android',
+          'og:image:alt': 'Digital Mala — private, offline mantra counting',
         }.entries)
           meta(id: entry.key, content: entry.value, attributes: {'property': entry.key}),
         link(id: 'canonical', rel: 'canonical', href: url),
@@ -94,6 +95,20 @@ class PageSeo extends StatelessComponent {
                     'Local data storage',
                   ],
                   'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'INR', 'url': playStoreUrl},
+                },
+                {
+                  '@type': 'SoftwareApplication',
+                  '@id': '$siteUrl/#desktop-app',
+                  'name': 'Digital Mala Desktop',
+                  'url': '$siteUrl/#desktop',
+                  'operatingSystem': 'Windows, Linux',
+                  'softwareVersion': desktopVersion,
+                  'applicationCategory': 'LifestyleApplication',
+                  'description':
+                      'Offline mantra and japa counting for Windows and Linux. macOS is still in development.',
+                  'downloadUrl': [microsoftStoreUrl, windowsZipUrl, linuxArchiveUrl],
+                  'screenshot': '$siteUrl/images/desktop/counter.png',
+                  'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'INR'},
                 },
               ],
             }),

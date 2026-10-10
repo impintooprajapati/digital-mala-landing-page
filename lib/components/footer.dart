@@ -29,6 +29,7 @@ class Footer extends StatelessComponent {
                 ('Features', '/#features'),
                 ('How It Works', '/#how-it-works'),
                 ('App Screens', '/#screenshots'),
+                ('Desktop Downloads', '/#desktop'),
                 ('FAQ', '/#faq'),
                 ("What's New", '/changelog'),
               ])

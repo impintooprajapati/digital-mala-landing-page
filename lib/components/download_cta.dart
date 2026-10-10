@@ -23,6 +23,7 @@ class DownloadCta extends StatelessComponent {
             ),
           ]),
           const PlayStoreButton(light: true),
+          a(href: '/#desktop', classes: 'cta-desktop-link', [Component.text('Looking for Windows or Linux? ↓')]),
           span(classes: 'cta-footnote', [
             Component.text('Available now on Android · Free to use · No account required'),
           ]),
