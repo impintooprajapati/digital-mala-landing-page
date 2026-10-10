@@ -21,7 +21,7 @@ class Faq extends StatelessComponent {
             const FaqItem(
               question: 'Where is my chanting data stored?',
               answer:
-                  'All data is stored directly on your phone in a secure local database. The app operates 100% offline, meaning I do not run servers and cannot access your logs. If you uninstall the app, your local database is permanently deleted.',
+                  'All data is stored directly on your device in a secure local database. The app operates offline, meaning I do not run servers and cannot access your logs. Export a local backup before removing the app or clearing its data.',
             ),
             const FaqItem(
               question: 'Can I back up my progress or transfer it?',
@@ -36,7 +36,7 @@ class Faq extends StatelessComponent {
             const FaqItem(
               question: 'How do the haptic feedback features work?',
               answer:
-                  'The app uses your mobile device\'s built-in haptic engine to create a subtle vibration pulse when you transition to the next bead. This allows you to count Japa without constantly looking at the screen.',
+                  'On Android, the app uses your mobile device\'s built-in haptic engine to create a subtle vibration pulse when you transition to the next bead. This allows you to count Japa without constantly looking at the screen.',
             ),
             const FaqItem(
               question: 'Can I add custom mantras and set goals?',

@@ -18,6 +18,9 @@ const element = (id = '') => ({
   focus() { document.activeElement = this; },
 });
 const html = element(), navbar = element(), menu = element(), main = element(), footer = element(), bar = element();
+const windowsCard = element(), linuxCard = element();
+windowsCard.attrs['data-platform'] = 'windows';
+linuxCard.attrs['data-platform'] = 'linux';
 const hero = { bottom: 1000, getBoundingClientRect() { return { bottom: this.bottom }; } };
 const download = { top: 8000, getBoundingClientRect() { return { top: this.top }; } };
 const links = Array.from({ length: 8 }, () => element());
@@ -35,11 +38,15 @@ const document = {
       '.hamburger': toggle,
     })[selector] ?? null;
   },
-  querySelectorAll(selector) { return selector === 'main, footer' ? [main, footer] : []; },
+  querySelectorAll(selector) {
+    return selector === 'main, footer' ? [main, footer] :
+      selector === '[data-platform]' ? [windowsCard, linuxCard] : [];
+  },
   addEventListener(name, callback) { documentEvents[name] = callback; },
 };
 const window = {
   innerWidth: 375, innerHeight: 900, scrollY: 0,
+  navigator: { platform: 'Win32', userAgent: 'Windows' },
   addEventListener(name, callback) { windowEvents[name] = callback; },
 };
 runInNewContext(runtime, {
@@ -49,6 +56,8 @@ runInNewContext(runtime, {
 const flush = () => { while (frames.length) frames.shift()(); };
 windowEvents.DOMContentLoaded();
 flush();
+assert.equal(windowsCard.classList.contains('is-recommended'), true);
+assert.equal(linuxCard.classList.contains('is-recommended'), false);
 assert.equal(bar.inert, true);
 assert.equal(menu.inert, true);
 hero.bottom = 50;
@@ -82,3 +91,16 @@ windowEvents.resize();
 flush();
 assert.equal(bar.inert, true);
 console.log('PASS mobile CTA visibility, menu background isolation, Tab cycling and Escape');
+for (const [platform, userAgent, windowsExpected, linuxExpected] of [
+  ['Linux x86_64', 'Linux', false, true],
+  ['Linux armv8l', 'Android', false, false],
+  ['Linux aarch64', 'Linux', false, false],
+  ['MacIntel', 'Macintosh', false, false],
+]) {
+  window.navigator = { platform, userAgent };
+  windowEvents.DOMContentLoaded();
+  flush();
+  assert.equal(windowsCard.classList.contains('is-recommended'), windowsExpected);
+  assert.equal(linuxCard.classList.contains('is-recommended'), linuxExpected);
+}
+console.log('PASS platform recommendations for Windows, Linux, Android and macOS');

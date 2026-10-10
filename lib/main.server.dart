@@ -51,6 +51,15 @@ void main() {
         script(
           content: '''
         window.addEventListener('DOMContentLoaded', () => {
+          // Local-only platform hint. Never auto-download or hide other platforms.
+          const agent = window.navigator?.userAgent || '';
+          const platform = window.navigator?.userAgentData?.platform || window.navigator?.platform || '';
+          const desktopOS = /Win/i.test(platform) ? 'windows' :
+            /Linux/i.test(platform) && !/Android|aarch64|arm/i.test(platform + ' ' + agent) ? 'linux' : '';
+          document.querySelectorAll('[data-platform]').forEach(card => {
+            const recommended = card.getAttribute('data-platform') === desktopOS;
+            card.classList.toggle('is-recommended', recommended);
+          });
           let pending = false;
           const updateScroll = () => {
             pending = false;

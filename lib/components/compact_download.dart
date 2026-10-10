@@ -1,6 +1,5 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'play_store_button.dart';
 
 /// A quiet mobile shortcut shown only between the hero and final download section.
 class CompactDownload extends StatelessComponent {
@@ -15,16 +14,14 @@ class CompactDownload extends StatelessComponent {
         span([Component.text('Free · Offline · No ads')]),
       ]),
       a(
-        href: playStoreUrl,
-        target: Target.blank,
+        href: '/#download',
         classes: 'nav-btn',
         attributes: {
-          'rel': 'noopener noreferrer',
-          'aria-label': 'Get Digital Mala for Android on Google Play (opens in a new tab)',
+          'aria-label': 'Choose a platform to download Digital Mala',
         },
         [
           Component.text('Get the app'),
-          span(attributes: {'aria-hidden': 'true'}, [Component.text('↗')]),
+          span(attributes: {'aria-hidden': 'true'}, [Component.text('↓')]),
         ],
       ),
     ],
