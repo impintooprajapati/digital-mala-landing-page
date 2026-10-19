@@ -35,13 +35,13 @@ class TermsOfServicePage extends StatelessComponent {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://digitalmala.app/"
+                "item": "https://digitalmala.impintooprajapati.in/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Terms of Service",
-                "item": "https://digitalmala.app/terms-of-service"
+                "item": "https://digitalmala.impintooprajapati.in/terms-of-service"
               }
             ]
           }

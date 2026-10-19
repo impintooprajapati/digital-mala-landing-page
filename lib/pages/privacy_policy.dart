@@ -35,13 +35,13 @@ class PrivacyPolicyPage extends StatelessComponent {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://digitalmala.app/"
+                "item": "https://digitalmala.impintooprajapati.in/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Privacy Policy",
-                "item": "https://digitalmala.app/privacy-policy"
+                "item": "https://digitalmala.impintooprajapati.in/privacy-policy"
               }
             ]
           }
