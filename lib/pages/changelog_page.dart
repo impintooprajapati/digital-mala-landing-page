@@ -33,13 +33,13 @@ class ChangelogPage extends StatelessComponent {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://digitalmala.app/"
+                "item": "https://digitalmala.impintooprajapati.in/"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Changelog",
-                "item": "https://digitalmala.app/changelog"
+                "item": "https://digitalmala.impintooprajapati.in/changelog"
               }
             ]
           }

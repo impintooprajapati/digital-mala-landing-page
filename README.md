@@ -92,7 +92,7 @@ You can serve the `/build/jaspr` folder using any static host (GitHub Pages, Fir
 
 - Each route renders a unique title, description, canonical, Open Graph and Twitter metadata through `lib/components/page_seo.dart`. These are present in the static HTML before JavaScript runs.
 - The homepage includes linked `WebSite`, `WebPage` and `MobileApplication` JSON-LD. Legal and release-note pages retain their own breadcrumb schema. No unverified rating or review markup is emitted.
-- The production origin is `https://digitalmala.app`. If the domain changes, update `siteUrl`, breadcrumb URLs, `web/sitemap.xml` and `web/robots.txt` together.
+- The production origin is `https://digitalmala.impintooprajapati.in`. If the domain changes, update `siteUrl`, breadcrumb URLs, `web/sitemap.xml` and `web/robots.txt` together.
 - Keep sitemap modification dates accurate when pages change.
 
 ### Validation
@@ -110,4 +110,4 @@ node scripts/test_ui_runtime.mjs
 
 The SEO check validates all four generated routes, unique metadata, canonical/sitemap consistency, social tags, one H1, structured-data scope and local assets. The runtime check uses isolated test fixtures, not a browser; responsive visual checks still need to be performed separately.
 
-After deployment, submit `https://digitalmala.app/sitemap.xml` in Google Search Console and inspect the live pages. Local checks do not prove indexing or rankings.
+After deployment, submit `https://digitalmala.impintooprajapati.in/sitemap.xml` in Google Search Console and inspect the live pages. Local checks do not prove indexing or rankings.

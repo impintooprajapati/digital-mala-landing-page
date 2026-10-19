@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://digitalmala.app/sitemap.xml
+Sitemap: https://digitalmala.impintooprajapati.in/sitemap.xml

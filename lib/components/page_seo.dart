@@ -4,7 +4,7 @@ import 'package:jaspr/jaspr.dart';
 import 'play_store_button.dart';
 import '../constants/downloads.dart';
 
-const siteUrl = 'https://digitalmala.app';
+const siteUrl = 'https://digitalmala.impintooprajapati.in';
 const homeTitle = 'Digital Mala — Free Offline Japa & Mantra Counter';
 const homeDescription =
     'Free offline mantra and japa counter for Android, Windows and Linux. Track your practice with virtual mala beads. No ads or account. macOS coming soon.';

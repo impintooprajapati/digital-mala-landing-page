@@ -7,7 +7,7 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "build/jaspr"
-SITE = "https://digitalmala.app"
+SITE = "https://digitalmala.impintooprajapati.in"
 ROUTES = ["/", "/privacy-policy", "/terms-of-service", "/changelog"]
 
 
