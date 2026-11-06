@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import '../constants/downloads.dart';
+import 'desktop_mockup.dart';
 
 class DesktopAvailability extends StatelessComponent {
   const DesktopAvailability({super.key});
@@ -13,13 +14,94 @@ class DesktopAvailability extends StatelessComponent {
         h3([Component.text('Choose your quiet space.')]),
         p([
           Component.text(
-            'Windows and Linux are ready. Choose your download below. The macOS edition is still in development.',
+            'macOS, Windows, and Linux are ready. Version 2.0.0 brings tranquil, offline-first counting to your desk with keyboard shortcuts, wide dashboard layouts, and zero cloud tracking.',
           ),
         ]),
       ]),
       span(classes: 'desktop-release-badge', [Component.text('v$desktopVersion')]),
     ]),
     div(classes: 'desktop-platforms', [
+      // macOS Card
+      article(
+        classes: 'desktop-download-card macos-card',
+        attributes: {'data-platform': 'macos'},
+        [
+          _PlatformHeading(
+            name: 'macOS',
+            icon: '<path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/>',
+          ),
+          span(classes: 'platform-recommendation', [Component.text('Recommended for your device')]),
+          div(classes: 'macos-status-pill', [
+            span(classes: 'status-pill-dot', attributes: {'aria-hidden': 'true'}, []),
+            Component.text('Independent Developer Build (Unsigned DMG)'),
+          ]),
+          p([
+            Component.text(
+              'Universal DMG for Apple Silicon (M1/M2/M3/M4) and Intel Macs. 100% free, offline, and private with spacebar counting.',
+            ),
+          ]),
+          _externalLink(macosDmgUrl, 'Download macOS DMG', 'platform-download-button'),
+          span(classes: 'package-meta', [Component.text('Universal .dmg · v$desktopVersion · macOS 11+ · Unsigned Release')]),
+          details(classes: 'package-options macos-guide-details', [
+            summary([
+              Component.text('First-time opening guide (Gatekeeper)'),
+              span(attributes: {'aria-hidden': 'true'}, [Component.text('+')]),
+            ]),
+            div(classes: 'package-options-content macos-gatekeeper-content', [
+              p(classes: 'gatekeeper-explain', [
+                Component.text(
+                  'Because Digital Mala is a non-commercial, privacy-first community app released without Apple\'s \$99/yr corporate certificate, macOS Gatekeeper may show an "Unidentified Developer" dialog on first run. Follow these simple steps:',
+                ),
+              ]),
+              div(classes: 'guide-steps-list', [
+                div(classes: 'guide-step', [
+                  span(classes: 'step-num', [Component.text('1')]),
+                  div([
+                    strong([Component.text('Drag into Applications: ')]),
+                    Component.text('Open the downloaded .dmg and drag Digital Mala into your Applications folder.'),
+                  ]),
+                ]),
+                div(classes: 'guide-step', [
+                  span(classes: 'step-num', [Component.text('2')]),
+                  div([
+                    strong([Component.text('Right-Click to Open (Fastest): ')]),
+                    Component.text('In Finder > Applications, '),
+                    strong([Component.text('Right-click (or Control-click)')]),
+                    Component.text(' Digital Mala and select '),
+                    strong([Component.text('Open')]),
+                    Component.text(', then click '),
+                    strong([Component.text('Open')]),
+                    Component.text(' in the security pop-up.'),
+                  ]),
+                ]),
+                div(classes: 'guide-step', [
+                  span(classes: 'step-num', [Component.text('3')]),
+                  div([
+                    strong([Component.text('Or via System Settings: ')]),
+                    Component.text('Open '),
+                    strong([Component.text('System Settings → Privacy & Security')]),
+                    Component.text(', scroll down to the Security section, and click '),
+                    strong([Component.text('"Open Anyway"')]),
+                    Component.text('.'),
+                  ]),
+                ]),
+              ]),
+              div(classes: 'terminal-fix-box', [
+                span(classes: 'terminal-fix-label', [
+                  Component.text('If macOS reports "App is damaged and cannot be opened":'),
+                ]),
+                code(classes: 'terminal-code', [Component.text('xattr -cr /Applications/Digital\\ Mala.app')]),
+                span(classes: 'terminal-fix-sub', [
+                  Component.text('Run this once in Terminal to clear Apple Gatekeeper quarantine.'),
+                ]),
+              ]),
+              _externalLink(githubReleaseUrl, 'View GitHub Release v$desktopVersion assets ↗', 'package-link'),
+            ]),
+          ]),
+        ],
+      ),
+
+      // Windows Card
       article(
         classes: 'desktop-download-card windows-card',
         attributes: {'data-platform': 'windows'},
@@ -31,29 +113,32 @@ class DesktopAvailability extends StatelessComponent {
           span(classes: 'platform-recommendation', [Component.text('Recommended for your device')]),
           p([Component.text('Start with Microsoft Store. Prefer a standalone package? Find it below.')]),
           _externalLink(microsoftStoreUrl, 'Get from Microsoft Store', 'platform-download-button'),
-          span(classes: 'package-meta', [Component.text('Windows desktop app')]),
+          span(classes: 'package-meta', [Component.text('Windows desktop app · v$desktopVersion')]),
           details(classes: 'package-options', [
             summary([
               Component.text('Standalone downloads'),
               span(attributes: {'aria-hidden': 'true'}, [Component.text('+')]),
             ]),
             div(classes: 'package-options-content', [
-              _externalLink(windowsZipUrl, 'Windows x64 ZIP · 51.9 MB', 'package-link'),
+              _externalLink(windowsZipUrl, 'Windows x64 ZIP · v$desktopVersion', 'package-link'),
               p([
                 Component.text(
                   'Extract the ZIP and open the app from the extracted folder. Keep the accompanying files together.',
                 ),
               ]),
-              _externalLink(windowsMsixUrl, 'Windows MSIX · 28.8 MB', 'package-link'),
+              _externalLink(windowsMsixUrl, 'Windows MSIX · v$desktopVersion', 'package-link'),
               p([
                 Component.text(
                   'For manual installation. Package signing and Windows requirements may apply; Microsoft Store is the simpler option.',
                 ),
               ]),
+              _externalLink(githubReleaseUrl, 'View GitHub Release v$desktopVersion assets ↗', 'package-link'),
             ]),
           ]),
         ],
       ),
+
+      // Linux Card
       article(
         classes: 'desktop-download-card linux-card',
         attributes: {'data-platform': 'linux'},
@@ -63,38 +148,25 @@ class DesktopAvailability extends StatelessComponent {
             icon: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 9 3 3-3 3M13 15h4"/>',
           ),
           span(classes: 'platform-recommendation', [Component.text('Recommended for your device')]),
-          p([Component.text('Download the x64 desktop bundle directly from GitHub.')]),
-          _externalLink(linuxArchiveUrl, 'Download for Linux', 'platform-download-button'),
-          span(classes: 'package-meta', [Component.text('x64 · .tar.gz · v$desktopVersion · 20.8 MB')]),
+          p([Component.text('Portable standalone x64 desktop bundle for major Linux distributions.')]),
+          _externalLink(linuxArchiveUrl, 'Download Linux x64 tar.gz', 'platform-download-button'),
+          span(classes: 'package-meta', [Component.text('Portable x64 tar.gz · v$desktopVersion · GLIBC 2.31+')]),
           details(classes: 'package-options', [
             summary([
-              Component.text('How to run'),
+              Component.text('Installation & alternative'),
               span(attributes: {'aria-hidden': 'true'}, [Component.text('+')]),
             ]),
             div(classes: 'package-options-content', [
               p([
                 Component.text(
-                  'Extract the archive, open the bundle folder, and launch digital_mala_app. Keep the lib and data folders alongside the executable. System library requirements vary by distribution.',
+                  'Extract the tar.gz archive, open the bundle folder, and launch digital_mala_app. Works across major Linux distributions.',
                 ),
               ]),
+              _externalLink(githubReleaseUrl, 'View GitHub Release v$desktopVersion assets ↗', 'package-link'),
             ]),
           ]),
         ],
       ),
-      article(classes: 'desktop-download-card macos-card', [
-        _PlatformHeading(
-          name: 'macOS',
-          icon: '<rect x="4" y="4" width="16" height="12" rx="2"/><path d="m4 16-2 4h20l-2-4M9 20h6"/>',
-          comingSoon: true,
-        ),
-        span(classes: 'platform-recommendation', attributes: {'aria-hidden': 'true'}, []),
-        p([Component.text('I’m preparing the macOS edition. A little more space for your practice is on the way.')]),
-        div(classes: 'macos-status', [
-          span(classes: 'development-dot', attributes: {'aria-hidden': 'true'}, []),
-          Component.text('In development'),
-        ]),
-        span(classes: 'package-meta', [Component.text('No release date announced yet')]),
-      ]),
     ]),
     const DesktopShowcase(),
   ]);
@@ -102,8 +174,7 @@ class DesktopAvailability extends StatelessComponent {
 
 class _PlatformHeading extends StatelessComponent {
   final String name, icon;
-  final bool comingSoon;
-  const _PlatformHeading({required this.name, required this.icon, this.comingSoon = false});
+  const _PlatformHeading({required this.name, required this.icon});
   @override
   Component build(BuildContext context) => div(classes: 'platform-heading', [
     span(
@@ -116,9 +187,7 @@ class _PlatformHeading extends StatelessComponent {
       ],
     ),
     h4([Component.text(name)]),
-    span(classes: comingSoon ? 'coming-soon-label' : 'available-label', [
-      Component.text(comingSoon ? 'Coming soon' : 'Available now'),
-    ]),
+    span(classes: 'available-label', [Component.text('Available now')]),
   ]);
 }
 
@@ -138,6 +207,28 @@ Component _externalLink(String url, String label, String classes) => a(
   ],
 );
 
+class _ShowcaseScreen {
+  final String title;
+  final String icon;
+  final String image;
+  final String alt;
+  final String pill;
+  final String headline;
+  final String description;
+  final List<String> tags;
+
+  const _ShowcaseScreen({
+    required this.title,
+    required this.icon,
+    required this.image,
+    required this.alt,
+    required this.pill,
+    required this.headline,
+    required this.description,
+    required this.tags,
+  });
+}
+
 class DesktopShowcase extends StatefulComponent {
   const DesktopShowcase({super.key});
   @override
@@ -146,50 +237,99 @@ class DesktopShowcase extends StatefulComponent {
 
 class _DesktopShowcaseState extends State<DesktopShowcase> {
   int selected = 0;
-  static const screens = [
-    (
-      'Counter',
-      '/images/desktop/counter.png',
-      'The Windows chanting counter with virtual mala beads, round progress and a spacebar shortcut.',
+
+  static const List<_ShowcaseScreen> screens = [
+    _ShowcaseScreen(
+      title: 'Mala Experience',
+      icon: '📿',
+      image: '/images/screenshots_raw/d4.png',
+      alt: 'Digital Mala desktop jap counter with spacebar counting and round progress',
+      pill: 'Screen 1 of 4 · Core Workspace',
+      headline: 'Minimalist, Distraction-Free Counting with Spacebar Support',
+      description:
+          'Tranquil dual-pane layout designed for wide desktop monitors. Tap Spacebar to count beads effortlessly at your desk, with live mantra reflection, round progress, and mindful temple bells.',
+      tags: ['⌨️ Spacebar Counting', '📿 108 Beads Ring', '🔥 Streak Tracking', '🔔 Sound Bell'],
     ),
-    (
-      'Personal setup',
-      '/images/desktop/setup.png',
-      'Personalize your desktop practice with your name, spiritual path and daily mantra.',
+    _ShowcaseScreen(
+      title: 'Devotee Profile & Vows',
+      icon: '👤',
+      image: '/images/screenshots_raw/d3.png',
+      alt: 'Digital Mala desktop devotee profile and spiritual vows setup',
+      pill: 'Screen 2 of 4 · Devotee Setup',
+      headline: 'Personalized Devotee Profile — Sacred Setup & Sankalp',
+      description:
+          'Configure your spiritual identity, vow commitments, chosen path, and daily mantra. 100% offline-first with zero accounts, cloud tracking, or telemetry.',
+      tags: ['👤 Devotee Name (Pintoo)', '🌸 Spiritual Path', '✨ Daily Mantra', '🔒 100% Offline'],
     ),
-    (
-      'Languages',
-      '/images/desktop/languages.png',
-      'Choose a language for your practice in the Digital Mala Windows app.',
+    _ShowcaseScreen(
+      title: 'Activity Heatmap',
+      icon: '📊',
+      image: '/images/screenshots_raw/d5.png',
+      alt: 'Digital Mala desktop activity heatmap and sadhana streak insights',
+      pill: 'Screen 3 of 4 · Sadhana Insights',
+      headline: 'Sadhana Insights & Heatmap — Year-Round Dedication',
+      description:
+          'Visualize your daily chanting habits with Apple Health & GitHub-style activity heatmaps. Monitor streaks, completed malas, total counts, and lifetime dedication milestones.',
+      tags: ['📊 Year-Round Grid', '🟩 Dedication Heatmap', '🏆 Milestone Badges', '📈 Jaap Counts'],
+    ),
+    _ShowcaseScreen(
+      title: 'Ambient Soundscapes',
+      icon: '🎵',
+      image: '/images/screenshots_raw/d7.png',
+      alt: 'Digital Mala desktop ambient soundscapes with 432 Hz frequencies',
+      pill: 'Screen 4 of 4 · Meditative Sound',
+      headline: 'Window & Meditative Soundscapes — 432 Hz Healing Rhythms',
+      description:
+          'Calm your mind before and during your jaap with authentic OM Drone (136.1 Hz), Tibetan Singing Bowl (432 Hz), temple bells, and Himalayan stream ambient audio presets.',
+      tags: ['🕉️ OM Drone (136.1 Hz)', '🥣 Tibetan Bowl (432 Hz)', '🔔 Temple Bells', '🌊 Himalayan Stream'],
     ),
   ];
+
   @override
-  Component build(BuildContext context) => div(classes: 'desktop-showcase', [
-    div(classes: 'desktop-preview-heading', [
-      h4([Component.text('A familiar ritual. A bigger canvas.')]),
-      span([Component.text('A look inside the Windows app')]),
-    ]),
-    div(
-      classes: 'desktop-showcase-tabs',
-      attributes: {'aria-label': 'Desktop app previews'},
-      [
-        for (final screen in screens.indexed)
-          button(
-            classes: selected == screen.$1 ? 'selected' : '',
-            attributes: {'aria-pressed': (selected == screen.$1).toString()},
-            onClick: () => setState(() => selected = screen.$1),
-            [Component.text(screen.$2.$1)],
-          ),
-      ],
-    ),
-    figure([
-      img(
-        src: screens[selected].$2,
-        alt: screens[selected].$3,
-        loading: MediaLoading.lazy,
-        attributes: {'width': '1920', 'height': '1080', 'decoding': 'async'},
+  Component build(BuildContext context) {
+    final screen = screens[selected];
+
+    return div(classes: 'desktop-showcase', [
+      div(classes: 'desktop-preview-heading', [
+        h4([Component.text('A familiar ritual. A bigger canvas.')]),
+        span([Component.text('A look inside the Desktop app · Native macOS, Windows & Linux')]),
+      ]),
+      div(
+        classes: 'desktop-showcase-tabs',
+        attributes: {'aria-label': 'Desktop app previews', 'role': 'tablist'},
+        [
+          for (final (index, item) in screens.indexed)
+            button(
+              classes: selected == index ? 'selected' : '',
+              attributes: {
+                'role': 'tab',
+                'aria-selected': (selected == index).toString(),
+              },
+              onClick: () => setState(() => selected = index),
+              [
+                span(classes: 'tab-btn-icon', attributes: {'aria-hidden': 'true'}, [Component.text(item.icon)]),
+                span(classes: 'tab-btn-title', [Component.text(item.title)]),
+              ],
+            ),
+        ],
       ),
-      figcaption(attributes: {'aria-live': 'polite', 'aria-atomic': 'true'}, [Component.text(screens[selected].$3)]),
-    ]),
-  ]);
+      div(classes: 'desktop-showcase-stage', [
+        DesktopMockup(
+          image: screen.image,
+          alt: screen.alt,
+        ),
+      ]),
+      div(classes: 'desktop-showcase-caption', attributes: {'aria-live': 'polite', 'aria-atomic': 'true'}, [
+        span(classes: 'desktop-caption-pill', [
+          Component.text(screen.pill),
+        ]),
+        h4(classes: 'desktop-caption-title', [Component.text(screen.headline)]),
+        p(classes: 'desktop-caption-desc', [Component.text(screen.description)]),
+        div(classes: 'desktop-caption-tags', [
+          for (final tag in screen.tags)
+            span(classes: 'desktop-caption-tag', [Component.text(tag)]),
+        ]),
+      ]),
+    ]);
+  }
 }

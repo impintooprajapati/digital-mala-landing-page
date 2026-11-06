@@ -18,9 +18,10 @@ const element = (id = '') => ({
   focus() { document.activeElement = this; },
 });
 const html = element(), navbar = element(), menu = element(), main = element(), footer = element(), bar = element();
-const windowsCard = element(), linuxCard = element();
+const windowsCard = element(), linuxCard = element(), macosCard = element();
 windowsCard.attrs['data-platform'] = 'windows';
 linuxCard.attrs['data-platform'] = 'linux';
+macosCard.attrs['data-platform'] = 'macos';
 const hero = { bottom: 1000, getBoundingClientRect() { return { bottom: this.bottom }; } };
 const download = { top: 8000, getBoundingClientRect() { return { top: this.top }; } };
 const links = Array.from({ length: 8 }, () => element());
@@ -40,7 +41,7 @@ const document = {
   },
   querySelectorAll(selector) {
     return selector === 'main, footer' ? [main, footer] :
-      selector === '[data-platform]' ? [windowsCard, linuxCard] : [];
+      selector === '[data-platform]' ? [windowsCard, linuxCard, macosCard] : [];
   },
   addEventListener(name, callback) { documentEvents[name] = callback; },
 };
@@ -91,16 +92,17 @@ windowEvents.resize();
 flush();
 assert.equal(bar.inert, true);
 console.log('PASS mobile CTA visibility, menu background isolation, Tab cycling and Escape');
-for (const [platform, userAgent, windowsExpected, linuxExpected] of [
-  ['Linux x86_64', 'Linux', false, true],
-  ['Linux armv8l', 'Android', false, false],
-  ['Linux aarch64', 'Linux', false, false],
-  ['MacIntel', 'Macintosh', false, false],
+for (const [platform, userAgent, windowsExpected, linuxExpected, macosExpected] of [
+  ['Linux x86_64', 'Linux', false, true, false],
+  ['Linux armv8l', 'Android', false, false, false],
+  ['Linux aarch64', 'Linux', false, false, false],
+  ['MacIntel', 'Macintosh', false, false, true],
 ]) {
   window.navigator = { platform, userAgent };
   windowEvents.DOMContentLoaded();
   flush();
   assert.equal(windowsCard.classList.contains('is-recommended'), windowsExpected);
   assert.equal(linuxCard.classList.contains('is-recommended'), linuxExpected);
+  assert.equal(macosCard.classList.contains('is-recommended'), macosExpected);
 }
 console.log('PASS platform recommendations for Windows, Linux, Android and macOS');

@@ -6,6 +6,19 @@ class Changelog extends StatelessComponent {
 
   static const List<_VersionEntry> _versions = [
     _VersionEntry(
+      version: '2.0.0',
+      date: '6 Nov 2026',
+      changes: [
+        '🖥️ Native Desktop Releases: Available natively on macOS (Apple Silicon & Intel DMG), Windows (Microsoft Store MSIX & ZIP), and Linux Flatpak with Spacebar counting.',
+        '🎨 Redesigned Modern UI/UX: Luminous amber-gold accents, stone typography, and floating segmented controls.',
+        '📱 Adaptive Responsive Layouts: Fluid multi-pane dashboards and centered beads across Mobile Portrait/Landscape, Tablet, and Desktop monitors.',
+        '🧘 Sankalp & Daily Spiritual Vows: Set spiritual intentions, commit to daily bead targets, and track your vow milestones.',
+        '🌬️ Pranayama & Ambient Breathwork: Ground your mind with guided breathing rhythms and calming soundscapes.',
+        '📊 Activity Heatmap & Sadhana Insights: Year-round visual dedication heatmap, streaks, and detailed jaap statistics.',
+        '🔒 100% Offline-First & Private: Zero logins, zero ads, zero telemetry. 100% private and offline.',
+      ],
+    ),
+    _VersionEntry(
       version: '1.6.0',
       date: '10 Oct 2026',
       changes: [

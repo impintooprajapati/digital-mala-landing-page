@@ -54,7 +54,8 @@ void main() {
           // Local-only platform hint. Never auto-download or hide other platforms.
           const agent = window.navigator?.userAgent || '';
           const platform = window.navigator?.userAgentData?.platform || window.navigator?.platform || '';
-          const desktopOS = /Win/i.test(platform) ? 'windows' :
+          const desktopOS = /Mac/i.test(platform) || /Macintosh|Mac OS/i.test(agent) ? 'macos' :
+            /Win/i.test(platform) ? 'windows' :
             /Linux/i.test(platform) && !/Android|aarch64|arm/i.test(platform + ' ' + agent) ? 'linux' : '';
           document.querySelectorAll('[data-platform]').forEach(card => {
             const recommended = card.getAttribute('data-platform') === desktopOS;

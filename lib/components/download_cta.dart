@@ -19,17 +19,22 @@ class DownloadCta extends StatelessComponent {
           ]),
           p([
             Component.text(
-              'A quieter mind can begin with a single repetition. Start your practice and build a meaningful daily ritual with Digital Mala.',
+              'A quieter mind can begin with a single repetition. Experience tranquil chanting across Mobile and Desktop with Digital Mala v2.0.0.',
             ),
           ]),
           const PlayStoreButton(light: true),
-          a(href: '/#desktop', classes: 'cta-desktop-link', [Component.text('Looking for Windows or Linux? ↓')]),
+          a(href: '/#desktop', classes: 'cta-desktop-link', [
+            Component.text('Looking for macOS, Windows, or Linux? ↓'),
+          ]),
           span(classes: 'cta-footnote', [
-            Component.text('Available now on Android · Free to use · No account required'),
+            Component.text('Available now on macOS, Windows, Linux, Android & iOS · Free to use · 100% Offline'),
           ]),
         ]),
         div(classes: 'cta-visual', [
-          const PhoneMockup(image: '/images/screenshots_raw/6.png', alt: 'Digital Mala mindful counting screen'),
+          const PhoneMockup(
+            image: '/images/screenshots_raw/m4.png',
+            alt: 'Digital Mala mindful counting screen with smooth touch beads',
+          ),
         ]),
       ]),
       const DesktopAvailability(),

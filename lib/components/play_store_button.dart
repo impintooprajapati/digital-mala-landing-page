@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-
-const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.digitalmala.digital_mala_app';
+import '../constants/downloads.dart';
 
 class PlayStoreButton extends StatelessComponent {
   final bool light;

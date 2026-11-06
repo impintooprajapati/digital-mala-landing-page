@@ -124,7 +124,7 @@ class FeatureCard extends StatelessComponent {
     if (index == 3 || index == 5)
       div(classes: 'feature-preview', [
         img(
-          src: '/images/screenshots_raw/7.png',
+          src: '/images/screenshots_raw/m5.png',
           alt: 'Real Digital Mala activity heatmap and practice insights',
           loading: MediaLoading.lazy,
           attributes: {'width': '1080', 'height': '2424'},
