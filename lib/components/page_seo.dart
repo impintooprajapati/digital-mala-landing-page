@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'play_store_button.dart';
 import '../constants/downloads.dart';
 
 const siteUrl = 'https://digitalmala.impintooprajapati.in';
 const homeTitle = 'Digital Mala — Free Offline Japa & Mantra Counter';
 const homeDescription =
-    'Free offline mantra and japa counter for Android, Windows and Linux. Track your practice with virtual mala beads. No ads or account. macOS coming soon.';
+    'Free offline mantra & japa counter for Android, macOS, Windows & Linux. Virtual beads, sadhana heatmap & breathwork. Private, 100% offline, zero ads.';
 
 /// Rendered into the HTML head at build time, not injected only after hydration.
 class PageSeo extends StatelessComponent {
@@ -46,7 +45,7 @@ class PageSeo extends StatelessComponent {
         if (path == '/') ...[
           link(
             rel: 'preload',
-            href: '/images/screenshots_raw/6.png',
+            href: '/images/screenshots_raw/m4.png',
             attributes: {'as': 'image', 'fetchpriority': 'high'},
           ),
           script(
@@ -83,8 +82,8 @@ class PageSeo extends StatelessComponent {
                   'installUrl': playStoreUrl,
                   'image': '$siteUrl/images/Feature_Graphic.png',
                   'screenshot': [
-                    '$siteUrl/images/screenshots_raw/6.png',
-                    '$siteUrl/images/screenshots_raw/7.png',
+                    '$siteUrl/images/screenshots_raw/m4.png',
+                    '$siteUrl/images/screenshots_raw/m5.png',
                   ],
                   'featureList': [
                     'Offline mantra counting',
@@ -101,13 +100,20 @@ class PageSeo extends StatelessComponent {
                   '@id': '$siteUrl/#desktop-app',
                   'name': 'Digital Mala Desktop',
                   'url': '$siteUrl/#desktop',
-                  'operatingSystem': 'Windows, Linux',
+                  'operatingSystem': 'macOS, Windows, Linux',
                   'softwareVersion': desktopVersion,
                   'applicationCategory': 'LifestyleApplication',
                   'description':
-                      'Offline mantra and japa counting for Windows and Linux. macOS is still in development.',
-                  'downloadUrl': [microsoftStoreUrl, windowsZipUrl, linuxArchiveUrl],
-                  'screenshot': '$siteUrl/images/desktop/counter.png',
+                      'Offline mantra and japa counting natively for macOS, Windows and Linux with spacebar counting and wide screen dashboards.',
+                  'downloadUrl': [
+                    macosDmgUrl,
+                    microsoftStoreUrl,
+                    windowsZipUrl,
+                    windowsMsixUrl,
+                    linuxFlatpakUrl,
+                    linuxArchiveUrl,
+                  ],
+                  'screenshot': '$siteUrl/images/screenshots_raw/d4.png',
                   'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'INR'},
                 },
               ],

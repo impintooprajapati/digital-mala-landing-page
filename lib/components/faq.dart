@@ -43,6 +43,16 @@ class Faq extends StatelessComponent {
               answer:
                   'Absolutely. You can write custom mantras, select traditional counter limits (like 27, 54, 108, or 1008 beads), and track your statistics independently for each mantra.',
             ),
+            const FaqItem(
+              question: 'How do I open the macOS DMG version (Gatekeeper notice)?',
+              answer:
+                  'Digital Mala is 100% free and open-source, released directly by an independent developer without Apple\'s corporate certificate. On first run, right-click (or Control-click) Digital Mala in Applications and click "Open", or visit System Settings > Privacy & Security and click "Open Anyway".',
+            ),
+            const FaqItem(
+              question: 'How do I manage my spiritual user profile and vows?',
+              answer:
+                  'Navigate to the Apple ID-style Settings & Profile screen. There, you can set your spiritual name, devotional path, daily Sankalp vows, audio chimes, and mala bead styles (Rudraksha, Tulsi, Sphatik, Moti). Everything is stored locally on your device.',
+            ),
           ]),
         ]),
       ],

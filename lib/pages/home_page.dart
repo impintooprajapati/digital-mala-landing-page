@@ -6,16 +6,17 @@ import '../components/compact_download.dart';
 // Import the reusable components
 import '../components/navigation.dart';
 import '../components/hero.dart';
+import '../components/value_strip.dart';
+import '../components/whats_new.dart';
 import '../components/features.dart';
 import '../components/screenshots.dart';
 import '../components/how_it_works.dart';
 import '../components/why_us.dart';
+import '../components/screenshot_story.dart';
 import '../components/reviews.dart';
 import '../components/faq.dart';
 import '../components/download_cta.dart';
 import '../components/footer.dart';
-import '../components/value_strip.dart';
-import '../components/screenshot_story.dart';
 
 class HomePage extends StatelessComponent {
   const HomePage({super.key});
@@ -33,10 +34,13 @@ class HomePage extends StatelessComponent {
         const HeroSection(),
         const ValueStrip(),
 
+        // 🌟 What's New in Version 2.0.0
+        const WhatsNew(),
+
         // 3. Features Cards
         const Features(),
 
-        // 4. Screenshots Device Slider
+        // 4. Screenshots Device Slider (8 Mobile + 8 Desktop)
         const Screenshots(),
 
         // 5. How It Works

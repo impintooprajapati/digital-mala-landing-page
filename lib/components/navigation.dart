@@ -12,10 +12,11 @@ class _NavigationState extends State<Navigation> {
   bool isDrawerOpen = false;
   void _closeDrawer() => setState(() => isDrawerOpen = false);
   static const links = [
+    ("What's New", '/#whats-new'),
+    ('Screenshots', '/#screenshots'),
     ('Features', '/#features'),
     ('How It Works', '/#how-it-works'),
     ('Benefits', '/#why-us'),
-    ('Reviews', '/#reviews'),
     ('FAQ', '/#faq'),
   ];
   @override

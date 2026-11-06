@@ -97,9 +97,9 @@ You can serve the `/build/jaspr` folder using any static host (GitHub Pages, Fir
 
 ### Validation
 
-Desktop downloads are configured in `lib/constants/downloads.dart`: Microsoft Store is the primary Windows option, with verified v1.6.0 ZIP/MSIX files and a Linux x64 archive from this repository’s GitHub release. macOS is not yet available. Update the release URLs, version, visible package sizes and SEO checks together when publishing a new version.
+Desktop downloads are configured in `lib/constants/downloads.dart`: macOS Universal DMG, Microsoft Store Windows MSIX/ZIP, and Linux Flatpak/tar.gz are natively available in v2.0.0. Update the release URLs, version, visible package sizes, and SEO checks together when publishing a new version.
 
-The desktop gallery reuses the supplied Store marketing screenshots in `web/images/desktop/`. Platform recommendations are local hints only; they do not initiate downloads or hide alternatives.
+The screenshot gallery showcases all 8 Mobile and 8 Desktop screenshots in `web/images/screenshots_raw/` (`m1.png`–`m8.png` and `d1.png`–`d8.png`). Platform recommendations are local hints only; they do not initiate downloads or hide alternatives.
 
 ```bash
 dart analyze

@@ -80,18 +80,20 @@ for route in ROUTES:
         preview_index = next(i for i, (tag, attributes) in enumerate(page.tags) if attributes.get("class") == "desktop-showcase")
         assert cards_index < preview_index, "Download choices must appear before the large preview"
         statuses = page.attributes("span", "class", "coming-soon-label")
-        assert len(statuses) == 1, "Only macOS should have a coming-soon status"
-        assert len(page.attributes("span", "class", "available-label")) == 2, "Windows and Linux must be available"
+        assert len(statuses) == 0, "All desktop platforms are released in v2.0.0"
+        assert len(page.attributes("span", "class", "available-label")) == 3, "macOS, Windows and Linux must be available"
         assert page.attributes("a", "href", "/#desktop"), "Hero should link to desktop availability"
         app = next(node for node in nodes if node.get("@type") == "MobileApplication")
         assert app["operatingSystem"] == "Android", "Unreleased platforms must not be advertised as available in app schema"
         desktop = next(node for node in nodes if node.get("@type") == "SoftwareApplication")
-        assert desktop["operatingSystem"] == "Windows, Linux" and desktop["softwareVersion"] == "1.6.0"
+        assert desktop["operatingSystem"] == "macOS, Windows, Linux" and desktop["softwareVersion"] == "2.0.0"
         expected_downloads = [
             "https://apps.microsoft.com/detail/9nmvnh7j7655?hl=en-US&gl=IN",
-            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v1.6.0/DigitalMala-Windows-x64.zip",
-            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v1.6.0/digital_mala_app.msix",
-            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v1.6.0/DigitalMala-Linux-x64.tar.gz",
+            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-Windows-x64.zip",
+            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/digital_mala_app.msix",
+            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-macOS-Universal.dmg",
+            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/com.digitalmala.DigitalMala.flatpak",
+            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-Linux-x64.tar.gz",
         ]
         for download in expected_downloads:
             assert page.attributes("a", "href", download), f"Missing verified download: {download}"
