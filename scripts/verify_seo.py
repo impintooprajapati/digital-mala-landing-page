@@ -91,8 +91,7 @@ for route in ROUTES:
             "https://apps.microsoft.com/detail/9nmvnh7j7655?hl=en-US&gl=IN",
             "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-Windows-x64.zip",
             "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/digital_mala_app.msix",
-            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-macOS-Universal.dmg",
-            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/com.digitalmala.DigitalMala.flatpak",
+            "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-macOS.dmg",
             "https://github.com/impintooprajapati/digital-mala-landing-page/releases/download/v2.0.0/DigitalMala-Linux-x64.tar.gz",
         ]
         for download in expected_downloads:

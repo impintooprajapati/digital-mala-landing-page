@@ -95,6 +95,7 @@ class DesktopAvailability extends StatelessComponent {
                   Component.text('Run this once in Terminal to clear Apple Gatekeeper quarantine.'),
                 ]),
               ]),
+              _externalLink(githubReleaseUrl, 'View GitHub Release v$desktopVersion assets ↗', 'package-link'),
             ]),
           ]),
         ],
@@ -131,6 +132,7 @@ class DesktopAvailability extends StatelessComponent {
                   'For manual installation. Package signing and Windows requirements may apply; Microsoft Store is the simpler option.',
                 ),
               ]),
+              _externalLink(githubReleaseUrl, 'View GitHub Release v$desktopVersion assets ↗', 'package-link'),
             ]),
           ]),
         ],
@@ -146,21 +148,21 @@ class DesktopAvailability extends StatelessComponent {
             icon: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 9 3 3-3 3M13 15h4"/>',
           ),
           span(classes: 'platform-recommendation', [Component.text('Recommended for your device')]),
-          p([Component.text('Install via Linux Flatpak or download the portable x64 desktop bundle.')]),
-          _externalLink(linuxFlatpakUrl, 'Download Linux Flatpak', 'platform-download-button'),
-          span(classes: 'package-meta', [Component.text('Flatpak / x64 tar.gz · v$desktopVersion')]),
+          p([Component.text('Portable standalone x64 desktop bundle for major Linux distributions.')]),
+          _externalLink(linuxArchiveUrl, 'Download Linux x64 tar.gz', 'platform-download-button'),
+          span(classes: 'package-meta', [Component.text('Portable x64 tar.gz · v$desktopVersion · GLIBC 2.31+')]),
           details(classes: 'package-options', [
             summary([
-              Component.text('Alternative download & run'),
+              Component.text('Installation & alternative'),
               span(attributes: {'aria-hidden': 'true'}, [Component.text('+')]),
             ]),
             div(classes: 'package-options-content', [
-              _externalLink(linuxArchiveUrl, 'Download Linux x64 tar.gz', 'package-link'),
               p([
                 Component.text(
-                  'Extract the archive, open the bundle folder, and launch digital_mala_app. Works across major Linux distributions.',
+                  'Extract the tar.gz archive, open the bundle folder, and launch digital_mala_app. Works across major Linux distributions.',
                 ),
               ]),
+              _externalLink(githubReleaseUrl, 'View GitHub Release v$desktopVersion assets ↗', 'package-link'),
             ]),
           ]),
         ],

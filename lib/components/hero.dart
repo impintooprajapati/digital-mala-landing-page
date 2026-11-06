@@ -73,9 +73,9 @@ class HeroSection extends StatelessComponent {
               ],
             ),
             a(
-              href: linuxFlatpakUrl,
+              href: linuxArchiveUrl,
               classes: 'hero-dl-btn linux-btn',
-              attributes: {'aria-label': 'Download Version 2.0.0 for Linux (Flatpak)'},
+              attributes: {'aria-label': 'Download Version 2.0.0 for Linux (x64 tar.gz)'},
               [
                 span(classes: 'dl-platform-icon', attributes: {'aria-hidden': 'true'}, [
                   RawText(
@@ -84,7 +84,7 @@ class HeroSection extends StatelessComponent {
                 ]),
                 div(classes: 'dl-btn-meta', [
                   span(classes: 'dl-platform', [Component.text('Linux')]),
-                  strong(classes: 'dl-package', [Component.text('Flatpak')]),
+                  strong(classes: 'dl-package', [Component.text('x64 tar.gz')]),
                 ]),
               ],
             ),
@@ -112,8 +112,15 @@ class HeroSection extends StatelessComponent {
         ]),
 
         p(classes: 'hero-platform-note', [
-          Component.text('Native on Apple Silicon & Intel macOS (unsigned DMG), Windows, Linux, Android & iOS. '),
-          a(href: '/#desktop', [Component.text('View macOS first-run guide & desktop release files →')]),
+          Component.text('Native on Apple Silicon & Intel macOS (DMG), Windows, Linux, Android & iOS. '),
+          a(href: '/#desktop', [Component.text('Desktop guide & files →')]),
+          Component.text(' · '),
+          a(
+            href: githubReleaseUrl,
+            target: Target.blank,
+            attributes: {'rel': 'noopener noreferrer', 'aria-label': 'GitHub Release v2.0.0 (opens in a new tab)'},
+            [Component.text('GitHub Release v2.0.0 ↗')],
+          ),
         ]),
 
         ul(classes: 'hero-benefits', [
