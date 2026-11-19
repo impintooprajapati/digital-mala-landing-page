@@ -13,6 +13,15 @@ class DesktopMockup extends StatelessComponent {
 
   @override
   Component build(BuildContext context) => div(classes: 'desktop-window-frame', [
+    div(classes: 'desktop-window-bar', attributes: {'aria-hidden': 'true'}, [
+      div(classes: 'desktop-window-dots', [
+        span(classes: 'dot dot-close', []),
+        span(classes: 'dot dot-min', []),
+        span(classes: 'dot dot-max', []),
+      ]),
+      span(classes: 'desktop-window-title', [Component.text('Digital Mala — Desktop')]),
+      div(classes: 'desktop-window-spacer', []),
+    ]),
     div(classes: 'desktop-window-screen', [
       img(
         src: image,
@@ -23,4 +32,3 @@ class DesktopMockup extends StatelessComponent {
     ]),
   ]);
 }
-

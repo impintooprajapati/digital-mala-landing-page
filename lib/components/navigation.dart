@@ -12,11 +12,11 @@ class _NavigationState extends State<Navigation> {
   bool isDrawerOpen = false;
   void _closeDrawer() => setState(() => isDrawerOpen = false);
   static const links = [
-    ("What's New", '/#whats-new'),
-    ('Screenshots', '/#screenshots'),
+    ('Practice', '/#digital-jaap'),
+    ('Privacy', '/#privacy'),
     ('Features', '/#features'),
-    ('How It Works', '/#how-it-works'),
-    ('Benefits', '/#why-us'),
+    ('Screenshots', '/#screenshots'),
+    ('Desktop', '/#desktop'),
     ('FAQ', '/#faq'),
   ];
   @override
@@ -73,16 +73,10 @@ class _NavigationState extends State<Navigation> {
             [Component.text(link.$1)],
           ),
         a(
-          href: '/#screenshots',
-          classes: 'nav-link',
-          events: {'click': (event) => _closeDrawer()},
-          [Component.text('Explore the App')],
-        ),
-        a(
           href: '/changelog',
           classes: 'nav-link',
           events: {'click': (event) => _closeDrawer()},
-          [Component.text("What's New")],
+          [Component.text("What's New in v2.0.0")],
         ),
         a(
           href: '/#download',

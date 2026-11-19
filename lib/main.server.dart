@@ -29,7 +29,7 @@ void main() {
       title: 'Digital Mala — Free Offline Japa & Mantra Counter',
       lang: 'en',
       viewport: 'width=device-width, initial-scale=1.0',
-      meta: {'author': 'Digital Mala', 'theme-color': '#FCF9F3'},
+      meta: {'author': 'Digital Mala', 'theme-color': '#0C0C0E'},
       head: [
         // Preconnect hints for Google Fonts
         link(rel: 'preconnect', href: 'https://fonts.googleapis.com'),
@@ -95,6 +95,18 @@ void main() {
           window.addEventListener('scroll', scheduleUpdate, { passive: true });
           window.addEventListener('resize', scheduleUpdate, { passive: true });
           updateScroll();
+
+          if (typeof IntersectionObserver !== 'undefined') {
+            const revealObserver = new IntersectionObserver((entries, obs) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-revealed');
+                  obs.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal, .editorial-statement, .showcase-feature-section, .privacy-manifesto-section, .multi-device-section').forEach(el => revealObserver.observe(el));
+          }
 
           const syncDrawer = () => {
             const menu = document.querySelector('.mobile-drawer');
