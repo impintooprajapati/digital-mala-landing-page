@@ -3,10 +3,14 @@ import 'package:jaspr/jaspr.dart';
 import '../components/page_seo.dart';
 import '../components/compact_download.dart';
 
-// Import the reusable components
+// Reusable components
 import '../components/navigation.dart';
 import '../components/hero.dart';
 import '../components/value_strip.dart';
+import '../components/editorial_story.dart';
+import '../components/product_showcase.dart';
+import '../components/privacy_philosophy.dart';
+import '../components/multi_device_showcase.dart';
 import '../components/whats_new.dart';
 import '../components/features.dart';
 import '../components/screenshots.dart';
@@ -30,37 +34,66 @@ class HomePage extends StatelessComponent {
 
       // Main Page Content wrapper
       main_(id: 'main-content', styles: const Styles(position: Position.relative()), [
-        // 2. Hero Section
+        // 2. Full-Screen Product Hero
         const HeroSection(),
+
+        // 3. Value Ribbon
         const ValueStrip(),
 
-        // 🌟 What's New in Version 2.0.0
+        // 4. Editorial Story 1: "Less distraction. More devotion."
+        const EditorialStoryOne(),
+
+        // 5. Product Showcase: Digital Jaap (4 Sacred Malas, Tactile Counting)
+        const DigitalJaapShowcase(),
+
+        // 6. Product Showcase: Sankalp Tracker (Vows & Milestones)
+        const SankalpShowcase(),
+
+        // 7. Editorial Story 2: "Your practice deserves its own space."
+        const EditorialStoryTwo(),
+
+        // 8. Product Showcase: Sadhana Heatmap (Year-round visual dedication)
+        const HeatmapShowcase(),
+
+        // 9. Product Showcase: Guided Pranayama (Mindful Breathing)
+        const PranayamaShowcase(),
+
+        // 10. Editorial Story 3: "Built for consistency. Designed for peace."
+        const EditorialStoryThree(),
+
+        // 11. Privacy & Offline-First Philosophy: "Your data stays yours."
+        const PrivacyPhilosophy(),
+
+        // 12. One Practice. Multiple Devices. (Universal Harmony)
+        const MultiDeviceShowcase(),
+
+        // 13. 🌟 What's New in Version 2.0.0
         const WhatsNew(),
 
-        // 3. Features Cards
+        // 13. Features Cards Grid
         const Features(),
 
-        // 4. Screenshots Device Slider (8 Mobile + 8 Desktop)
+        // 14. Screenshots Device Slider (8 Mobile + 8 Desktop)
         const Screenshots(),
 
-        // 5. How It Works
+        // 15. How It Works (Four Simple Steps)
         const HowItWorks(),
 
-        // 6. Why Digital Mala
+        // 16. Why Digital Mala & Tradition
         const WhyUs(),
         const ScreenshotStory(),
 
-        // 7. Community Reviews
+        // 17. Community Reviews
         const Reviews(),
 
-        // 8. Collapsible FAQ
+        // 18. Collapsible FAQ
         const Faq(),
 
-        // 9. Download CTA Banner
+        // 19. Download CTA Banner & Desktop Availability (#desktop & #download)
         const DownloadCta(),
       ]),
 
-      // 10. Footer Section
+      // 20. Footer Section
       const Footer(),
       const CompactDownload(),
     ]);

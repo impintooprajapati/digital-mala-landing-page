@@ -23,7 +23,7 @@ class WhatsNew extends StatelessComponent {
       icon: '🖥️',
       title: 'Native Desktop Releases (macOS, Windows & Linux)',
       desc:
-          'Experience tranquil chanting at your desk. Features native macOS .dmg installer, Windows Microsoft Store MSIX & portable ZIP, and Linux Flatpak with keyboard-friendly counting (Spacebar / Click).',
+          'Experience tranquil chanting at your desk. Features native macOS DMG installer, Windows Microsoft Store MSIX & portable ZIP, and Linux portable x64 bundle with keyboard-friendly Spacebar counting.',
       tag: 'Desktop Milestone',
     ),
     WhatsNewItem(

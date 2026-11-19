@@ -1,20 +1,23 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import '../constants/downloads.dart';
 
 class Footer extends StatelessComponent {
   const Footer({super.key});
 
-  static const _navLinks = [
-    ('Terms of Service', '/terms-of-service'),
+  static const _legalLinks = [
     ('Privacy Policy', '/privacy-policy'),
+    ('Terms of Service', '/terms-of-service'),
+    ('Release Notes (v$desktopVersion)', '/changelog'),
     ('Contact Support', 'mailto:digitalmala@impintooprajapati.in'),
   ];
 
   @override
   Component build(BuildContext context) => footer(classes: 'footer', [
     div(classes: 'container', [
-      div(classes: 'footer-top', [
-        div(classes: 'footer-brand', [
+      div(classes: 'footer-main-grid', [
+        // Brand Column
+        div(classes: 'footer-brand-col', [
           a(href: '/', classes: 'footer-logo', attributes: {'aria-label': 'Digital Mala home'}, [
             img(src: '/images/logo.png', alt: '', attributes: {'width': '44', 'height': '44'}),
             span([
@@ -22,17 +25,64 @@ class Footer extends StatelessComponent {
               span(classes: 'footer-logo-accent', [Component.text('Mala')]),
             ]),
           ]),
+          p(classes: 'footer-desc', [
+            Component.text(
+              'A peaceful, 100% offline-first digital sanctuary for your daily Jaap, meditation, and spiritual discipline. Beautifully crafted for macOS, Windows, Linux, Android, and iOS.',
+            ),
+          ]),
+          p(classes: 'footer-badge-offline', [
+            span(classes: 'offline-dot', attributes: {'aria-hidden': 'true'}, []),
+            Component.text('100% Offline · No Ads · No Telemetry'),
+          ]),
         ]),
-        nav(
-          classes: 'footer-nav',
-          attributes: {'aria-label': 'Footer'},
-          [
-            for (final link in _navLinks)
-              a(href: link.$2, [Component.text(link.$1)]),
-          ],
-        ),
-        div(classes: 'footer-meta', [
-          div(classes: 'footer-social', [
+
+        // Downloads Column
+        div(classes: 'footer-col', [
+          span(classes: 'footer-heading', [Component.text('Platforms')]),
+          ul(classes: 'footer-list', [
+            li([a(href: macosDmgUrl, [Component.text('macOS (Apple Silicon & Intel)')])]),
+            li([a(href: '/#desktop', [Component.text('Windows (MSIX & Portable Zip)')])]),
+            li([a(href: linuxArchiveUrl, [Component.text('Linux (Standalone x64 tar.gz)')])]),
+            li([
+              a(
+                href: playStoreUrl,
+                target: Target.blank,
+                attributes: {'rel': 'noopener noreferrer'},
+                [Component.text('Android (Google Play) ↗')],
+              ),
+            ]),
+            li([
+              a(
+                href: githubReleaseUrl,
+                target: Target.blank,
+                attributes: {'rel': 'noopener noreferrer'},
+                [Component.text('GitHub Release v$desktopVersion ↗')],
+              ),
+            ]),
+          ]),
+        ]),
+
+        // Practice & Navigation Column
+        div(classes: 'footer-col', [
+          span(classes: 'footer-heading', [Component.text('Practice')]),
+          ul(classes: 'footer-list', [
+            li([a(href: '/#digital-jaap', [Component.text('Digital Jaap & Beads')])]),
+            li([a(href: '/#sankalp-tracker', [Component.text('Sankalp Vows & Goals')])]),
+            li([a(href: '/#sadhana-heatmap', [Component.text('Sadhana Heatmap')])]),
+            li([a(href: '/#guided-pranayama', [Component.text('Guided Pranayama')])]),
+            li([a(href: '/#desktop', [Component.text('Desktop Mala Counter')])]),
+            li([a(href: '/#privacy', [Component.text('Privacy Philosophy')])]),
+          ]),
+        ]),
+
+        // Legal & Connect Column
+        div(classes: 'footer-col', [
+          span(classes: 'footer-heading', [Component.text('Legal & Devotee Care')]),
+          ul(classes: 'footer-list', [
+            for (final link in _legalLinks)
+              li([a(href: link.$2, [Component.text(link.$1)])]),
+          ]),
+          div(classes: 'footer-social-row', [
             a(
               href: 'https://x.com/impintoodev',
               target: Target.blank,
@@ -58,7 +108,7 @@ class Footer extends StatelessComponent {
             a(
               href: 'mailto:digitalmala@impintooprajapati.in',
               classes: 'footer-social-link',
-              attributes: {'aria-label': 'Email Digital Mala'},
+              attributes: {'aria-label': 'Email Digital Mala Support'},
               [
                 RawText(
                   '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="m3 7 9 6 9-6"/></svg>',
@@ -66,9 +116,15 @@ class Footer extends StatelessComponent {
               ],
             ),
           ]),
-          p(classes: 'footer-copyright', [
-            Component.text('© ${DateTime.now().year} Digital Mala. All rights reserved.'),
-          ]),
+        ]),
+      ]),
+
+      div(classes: 'footer-bottom-row', [
+        p(classes: 'footer-copyright', [
+          Component.text('© ${DateTime.now().year} Digital Mala. Crafted with devotion for meditators worldwide.'),
+        ]),
+        p(classes: 'footer-tagline', [
+          Component.text('Peaceful · Offline · Free · No Ads'),
         ]),
       ]),
     ]),
